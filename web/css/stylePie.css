@@ -1,0 +1,40 @@
+/*Agregamos tambien el de el menu hamburgesa */
+.footer,
+#dir {
+    background-color: #e3e2e2;
+    /* Fondo gris tenue */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #555;
+}
+
+.footer i {
+    font-size: 24px;
+}
+
+.footer .utsjr-button {
+    width: 120px;
+    height: 15px;
+    background-color: #000000;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    background-image: url('/web/Img/ut.png');
+    background-size: cover;
+    background-position: center center
+}
+
+.footer .utsjr-button:hover {
+    background-color: #23527c;
+}
