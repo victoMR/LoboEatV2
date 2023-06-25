@@ -7,7 +7,6 @@ Instalr dependencias
 npm i 
 ```
 Que dependencias de node son:
-Instlar dependencias 
 ``` terminal
 npm i ejs
 npm i embellish.css
