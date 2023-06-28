@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     item.addEventListener("click", function() {
       const title = this.querySelector(".overlay span").textContent;
       const imageSrc = this.querySelector("img").src;
+      // agragar el span descrption de cada priducto de cada provedor 
       const description = "Descripción del producto";
       const ingredients = ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"];
 
