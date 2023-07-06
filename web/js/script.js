@@ -1,8 +1,10 @@
+//sript de la pantalla de carga 
 window.addEventListener("load", function() {
   const loader = document.querySelector(".loader");
   loader.style.display = "none";
 });
 
+//sript de el menu hamburger
 document.addEventListener("DOMContentLoaded", function() {
   const hamburgerIcon = document.querySelector(".hamburger-icon");
   const dropdownMenu = document.querySelector(".dropdown-menu");
@@ -10,14 +12,17 @@ document.addEventListener("DOMContentLoaded", function() {
   hamburgerIcon.addEventListener("click", function() {
     dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
   });
-
+  
+      
+//inicia script del cuadro
+/*
   const gridItems = document.querySelectorAll(".grid-item");
 
   gridItems.forEach(function(item) {
     item.addEventListener("click", function() {
-      const title = this.querySelector(".overlay span").textContent;
-      const imageSrc = this.querySelector("img").src;
-      // agragar el span descrption de cada priducto de cada provedor 
+      const title = this.querySelector(".overlay span").textContent;//agarra el title
+      const imageSrc = this.querySelector("img").src; // la imagen
+      // agragar el span description de cada producto de cada provedor 
       const description = "Descripción del producto";
       const ingredients = ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"];
 
@@ -49,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
       popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
+*/
 
   const closeButton = document.querySelector(".close-button");
 

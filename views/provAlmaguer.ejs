@@ -1,78 +1,84 @@
 <%- include("templates/encabezado")%>
 <%- include("templates/menu")%>
+<script src="/web/js/almaguer.js" defer></script>
+<script src="/web/js/carrito.js" defer></script>
 <link rel="stylesheet" href="/web/css/stylesOfMenu.css">
 <div class="grid-container">
-  <div class="grid-item">
-    <img src="https://cdn.pixabay.com/photo/2016/09/30/21/31/egg-1706421_1280.jpg" alt="Descripción de la imagen" />
-    <div class="overlay">
-      <span>Huevos al gusto
-        $35.00
-      </span>
-      <p class="description hidden">Descripción del producto</p>
-    </div>
-  </div>
+      <div class="grid-item">
+        <img src="https://cdn.pixabay.com/photo/2017/12/27/04/28/tortilla-3041938_1280.jpg" alt="Descripción de la imagen" />
+        <div class="overlay">
+          <span class="text" id="description">Deliciosa orden de tres tacos de pastor</span>
+          <span id="titulo">Orden de tacos  $40.00</span> <br>
+          <span class="text" id="ingredients">-Tortilla, -Pastor, -Verdura</span>
+        </div>
+      </div>
     <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg" alt="Descripción de la imagen" />
+      <img src="https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Ensalada
-          $50.00
-        </span>
+        <span class="text" id="description">Deliciosas enchiladas rojas</span>
+        <span id="titulo">Enchiladas  $50.00 </span>
+        <span class="text" id="ingredients">-Tortilla, -Chile, -Verdura</span>
       </div>
     </div>
     <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_1280.jpg" alt="Descripción de la imagen" />
+      <img src="https://cdn.pixabay.com/photo/2014/09/27/13/46/question-mark-463497_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Pescado
-          $10.00
-        </span>
+        <span class="text" id="description">Este desayuno varia siempre ¡Descubre que podra ser! ¿Te atreves?</span>
+        <span>Desayuno del dia $55</span>
+        <span class="text" id="ingredients">Incluye:, -Sopa, -Plato fuerte, -Tortilla, -Agua</span>
       </div>
     </div>
     <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_1280.jpg" alt="Descripción de la imagen" />
+      <img src="https://cdn.pixabay.com/photo/2020/12/02/19/00/tacos-5798445_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Hot Cakes
-          $65.00
-        </span>
+        <span class="text" id="description">Orden de cuatro ricos tacos dorados de pollo y papa. </span>
+        <span id="titulo">Tacos dorados $35.00 </span>
+        <span class="text" id="ingredients">-Pollo,-Papa, -Tortilla</span>
       </div>
     </div>
     <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_1280.jpg" alt="Descripción de la imagen" />
+      <img src="https://cdn.pixabay.com/photo/2015/07/12/14/26/coffee-842020_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Pastel de chocolate
-          $75.00
-        </span>
+        <span class="text" id="description">Incluye una taza de cafe al gusto y dos revadanas de pan. </span>
+        <span id="titulo">Desayuno $25.00 </span>
+        <span class="text" id="ingredients">-Cafe, -Pan</span>
       </div>
     </div>
     <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg" alt="Descripción de la imagen" />
+      <img src="https://media.istockphoto.com/id/641008428/es/foto/ensalada-de-frutas.jpg?s=1024x1024&w=is&k=20&c=1nDoEJEUqynjruG-U6azOtpX4gtOffGAjNesJInGFTQ=" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Hamburgesa
-          $25.00
-        </span>
+       
+        <span class="text" id="description">Combinacion  de distintas frutas para una exploción al paladar.  </span> 
+            <span id="titulo">Ensalada de frutas </span>
+        <span class="text" id="ingredients">-Manzana, -Fresa, -Kiwi </span>
       </div>
     </div>
+
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2017/06/24/05/26/hot-dog-2436747_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Hot dog
-          $48.00
-        </span>
+        <span class="text" id="description">Delicioso hot dog hecho con una jugosa salchicha,
+           envuelta en un pan de hot dog. ¡Una opción clásica que nunca decepciona!</span>
+        <span id="titulo">Hot dog $40.00 </span>
+        <span class="text" id="ingredients">-Salchicha, -Pan de hot dog fresco, -Otros(opcional)</span>
       </div>
     </div>
+
     <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2017/03/30/15/47/churros-2188871_1280.jpg" alt="Descripción de la imagen" />
+      <img src="https://cdn.pixabay.com/photo/2019/11/19/16/56/mexican-food-4637913_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Churros
-          $53.00
-        </span>
+        <span class="text" id="description">Rico pozole rojo....</span>
+        <span id="titulo">Pozole rojo $65.00 </span>
+        <span class="text" id="ingredients">-Carne de res,-Maiz, -Extras</span>
       </div>
     </div>
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2018/07/15/19/54/bruschetta-3540405_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Molletes
-          $18.00
-        </span>
+        <span class="text" id="description">Panes suaves y esponjosos con un centro tierno.
+           Ideales para el desayuno o la merienda, están cubiertos con frijoles refritos y queso derretido.</span>
+        <span id="titulo">Molletes $35.00 </span>
+        <span class="text" id="ingredients">-Pan, -Frijoles refritos, Queso rallado, -Pico de gallo</span>
       </div>
     </div>
   </div>

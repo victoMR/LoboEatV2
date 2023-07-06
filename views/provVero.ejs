@@ -1,77 +1,86 @@
 <%- include("templates/encabezado")%>
 <%- include("templates/menu")%>
+<script src="/web/js/vero.js" defer></script>
+<script src="/web/js/carrito.js" defer></script>
 <link rel="stylesheet" href="/web/css/stylesOfMenu.css">
 <div class="grid-container">
       <div class="grid-item">
         <img src="https://cdn.pixabay.com/photo/2016/09/30/21/31/egg-1706421_1280.jpg" alt="Descripción de la imagen" />
         <div class="overlay">
-          <span>Huevos al gusto
-            $35.00
-          </span>
+          <span class="text" id="description">Exquisitos huevos estrellados ...</span>
+          <span id="titulo">Huevos al gusto  $35.00</span> <br>
+          <span class="text" id="ingredients">-Huevo, -Tosino, -Sal</span>
         </div>
       </div>
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Ensalada
-          $50.00
-        </span>
+        <span class="text" id="description">Rica ensalada verde, llena de vitaminas, un un delicioso toque a pollo.</span>
+        <span id="titulo">Ensalada  $45.00 </span>
+        <span class="text" id="ingredients">-Lechuga, -Pollo, -Zanahoria, -Pan</span>
       </div>
     </div>
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Pescado
-          $10.00
-        </span>
+        <span class="text" id="description">Pescado a la boloñeeees, con una rica ensalada.</span>
+        <span>Pescado $65.00</span>
+        <span class="text" id="ingredients">-Pescado, -Ensalada</span>
       </div>
     </div>
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Hot Cakes
-          $65.00
-        </span>
+        <span class="text" id="description">Hotcakes esponjosos y deliciosos, perfectos para un desayuno reconfortante.</span>
+        <span id="titulo">Hot Cakes $25.00 </span>
+        <span class="text" id="ingredients">-Harina,-Leche, -Azucar, -Toque de vainilla</span>
       </div>
     </div>
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Pastel de chocolate
-          $75.00
-        </span>
+        <span class="text" id="description">Rico pastel de chocolate, con relleno de crema de coco.</span>
+        <span id="titulo">Pastel de chocolate $45.00 </span>
+        <span class="text" id="ingredients">-Chocolate, -Coco, -Chispas de chocolate, -Crema batida</span>
       </div>
     </div>
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Hamburgesa
-          $25.00
-        </span>
+       
+        <span class="text" id="description"> Es una deliciosa combinación de jugosa carne de res,
+           queso fundido y una fresca mezcla de lechuga, tomate y cebolla.  </span> 
+            <span id="titulo">Hamburgesa Clásica $55.00 </span>
+        <span class="text" id="ingredients">-Carne de res, -Queso cheddar, 
+          -Lechuga y Tomate</span>
       </div>
     </div>
+
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2017/06/24/05/26/hot-dog-2436747_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Hot dog
-          $48.00
-        </span>
+        <span class="text" id="description">Delicioso hot dog hecho con una jugosa salchicha,
+           envuelta en un pan de hot dog. ¡Una opción clásica que nunca decepciona!</span>
+        <span id="titulo">Hot dog $40.00 </span>
+        <span class="text" id="ingredients">-Salchicha, -Pan de hot dog fresco, -Otros(opcional)</span>
       </div>
     </div>
+
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2017/03/30/15/47/churros-2188871_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Churros
-          $53.00
-        </span>
+        <span class="text" id="description">Crujientes por fuera y suaves por dentro.</span>
+        <span id="titulo">Churros de azucar $15.00 </span>
+        <span class="text" id="ingredients">-Harina de trigo,-Azucar</span>
       </div>
     </div>
     <div class="grid-item">
       <img src="https://cdn.pixabay.com/photo/2018/07/15/19/54/bruschetta-3540405_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span>Molletes
-          $18.00
-        </span>
+        <span class="text" id="description">Panes suaves y esponjosos con un centro tierno.
+           Ideales para el desayuno o la merienda, están cubiertos con frijoles refritos y queso derretido.</span>
+        <span id="titulo">Molletes $35.00 </span>
+        <span class="text" id="ingredients">-Pan, -Frijoles refritos, Queso rallado, -Pico de gallo</span>
       </div>
     </div>
   </div>

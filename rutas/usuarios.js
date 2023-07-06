@@ -11,7 +11,7 @@ ruta.post("/inicio", (req, res) => {
   const passwordRegex = /^(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{10,}$/;
  //LoboEat@2023 is a example
 
-  if (login === "2022143069" && passwordRegex.test(password)) {
+  if (login === "2022143069" && passwordRegex.test(password) || (login === "2022143009" && password=="LAPATRONA@12345" )) {
     res.render("inicio");
     console.log("God requests ");
   } else if (password.length < 8) {
@@ -25,7 +25,6 @@ ruta.post("/inicio", (req, res) => {
     console.log("Bad request come to siic");
   }
 });
-
   
 ruta.get("/provVero",(req,res) => {
     res.render("provVero");
@@ -38,5 +37,8 @@ ruta.get("/aboutus",(req,res) => {
 });
 ruta.get("/login",(req,res) => {
   res.render("login");
+});
+ruta.get("/shopingCart",(req,res) => {
+  res.render("shopingCart");
 });
 module.exports = ruta;

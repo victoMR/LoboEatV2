@@ -38,6 +38,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+
     }
 
 }
@@ -132,7 +133,44 @@ menu {
     margin-right: 20px;
     margin-bottom: 20px;
     cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
 }
+
+.text{
+opacity: 0; /* Opacidad reducida, elemento deshabilitado */
+  pointer-events: none; /* Deshabilita los eventos del puntero en el elemento */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*codigo aqui*/
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    white-space: nowrap;
+  }
+  
+
+/*aqui termina*/
 
 .grid-item img {
     width: 100%;
@@ -183,7 +221,7 @@ menu {
     display: none;
   }
   .popup {
-    position: absolute;
+    position:fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -199,6 +237,8 @@ menu {
     justify-content: center;
     text-align: center;
     border-radius: 25px;
+    top: 95px;
+    height: auto;
   }
   
   #popup-content {
@@ -226,14 +266,18 @@ menu {
     font-size: 32px;
     font-weight: bold;
     color: #333;
+
     /* Agrega cualquier otro estilo que desees */
   }
   
   .popup-description {
     /* Estilos para la descripción del popup */
     padding-top: 20px;
-    font-size: 25px;
+    font-size: 15px;
     color: #c02222;
+    text-align: justify;
+
+
     /* Agrega cualquier otro estilo que desees */
   }
   

@@ -120,21 +120,24 @@ menu {
   }
   
   .provider {
+    display: flex; /* Agregado: hace que los elementos internos se ajusten correctamente */
     position: relative;
     overflow: hidden;
   }
   
   .provider-image {
-    width: 902px;
-    height: 683px;
-
+    margin-left: 65px;
+    width: 80%;
+    height: 100%;
     cursor: pointer;
     transition: opacity 0.3s ease;
     z-index: 2;
+
   }
   
   .provider:hover .provider-image {
     opacity: 0.5;
+   
   }
   
   .provider:hover::after {
@@ -145,10 +148,10 @@ menu {
     transform: translateX(-50%);
     background-color: rgba(30, 30, 30, 0.566);
     color: #ffffff;
-    padding: 10px;
+    padding: 0px;
     font-size: 32px;
     transition: opacity 0.3s ease;
-    opacity: 1;
+    opacity: 1;  
   }
   
   .provider::after {
@@ -156,7 +159,7 @@ menu {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 80%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
@@ -176,7 +179,7 @@ menu {
     opacity: 0;
     transition: opacity 0.2s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    z-index: 2;
+    z-index: 2; 
   }
   
   .provider:hover .provider-name {
@@ -194,3 +197,6 @@ menu {
     height: 100%;
   }
   
+  .provider-image{
+      color:#d17b41;
+  }
