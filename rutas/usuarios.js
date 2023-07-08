@@ -1,3 +1,6 @@
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+const bcrypt = require('bcrypt');
 var ruta=require("express").Router();
 
 ruta.get("/",(req,res) => {
@@ -6,25 +9,65 @@ ruta.get("/",(req,res) => {
 ruta.get("/inicio",(req,res) => {
     res.render("inicio");
 });
-ruta.post("/inicio", (req, res) => {
-  const { login, password } = req.body;
-  const passwordRegex = /^(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{10,}$/;
- //LoboEat@2023 is a example
 
-  if (login === "2022143069" && passwordRegex.test(password) || (login === "2022143009" && password=="LAPATRONA@12345" )) {
-    res.render("inicio");
-    console.log("God requests ");
-  } else if (password.length < 8) {
-    res.status(400).send('<script>alert("La contraseña debe tener al menos 10 caracteres."); window.location.href = "/login";</script>');
-  } else if (!passwordRegex.test(password)) {
-    res.status(400).send('<script>alert("La contraseña debe contener al menos un carácter especial."); window.location.href = "/login";</script>');
-  } else {
-    console.log("error");
-    // Aquí puedes redirigir al usuario a una página de error o mostrar un mensaje de error en la página de inicio de sesión.
-    res.status(400).send('<script>alert("Credenciales incorrectas, comunícate con el SIIC."); window.open("https://www.utsjr.edu.mx/", "_blank");</script>');
-    console.log("Bad request come to siic");
+ruta.get("/register", async(req, res) => {
+  res.render("register"); // Asegúrate de que la ruta sea correcta y coincida con la ubicación del archivo
+});
+
+ruta.post("/register", async (req, res) => {
+  const { username, name, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10); // Encripta la contraseña utilizando bcrypt
+
+  try {
+    const cliente = await prisma.cliente.create({
+      data: {
+        expediente_cliente: parseInt(username),
+        name_cliente: name,
+        password_cliente: hashedPassword,
+        status_cliente: true
+      }
+    });
+
+    res.redirect("/inicio");
+    console.log("Registro de cliente insertado en la base de datos");
+  } catch (error) {
+    console.log("Error al insertar el registro de cliente en la base de datos:", error);
+    res.status(500).send("Error interno del servidor");
   }
 });
+
+ruta.post("/inicio", async (req, res) => {
+  const { login, password } = req.body;
+
+  try {
+    const cliente = await prisma.cliente.findUnique({
+      where: {
+        expediente_cliente: parseInt(login),
+      },
+    });
+
+    if (!cliente) {
+      // El cliente no existe en la base de datos
+      return res.status(400).send("Credenciales incorrectas");
+    }
+
+    const passwordMatch = await bcrypt.compare(password, cliente.password_cliente);
+    if (!passwordMatch) {
+      // La contraseña no coincide
+      return res.status(400).send("Credenciales incorrectas");
+    }
+
+    // Las credenciales son válidas, se inicia sesión exitosamente
+    res.render("inicio");
+    console.log("Inicio de sesión exitoso");
+  } catch (error) {
+    console.log("Error al verificar las credenciales:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+});
+
+
+
   
 ruta.get("/provVero",(req,res) => {
     res.render("provVero");

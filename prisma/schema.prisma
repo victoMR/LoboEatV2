@@ -1,0 +1,70 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Cliente {
+  expediente_cliente Int      @id
+  name_cliente       String
+  password_cliente   String?
+  status_cliente     Boolean?
+  Compras            Compra[]
+}
+
+model Proveedor {
+  id_prov     Int        @id
+  name_prov   String
+  stand_prov  String?
+  status_prov Boolean?
+  tel_prov    String?
+  email_prov  String?
+  Producto    Producto[] // Agrega esta línea para establecer la relación opuesta
+  Compra      Compra[]
+}
+
+model Categoria {
+  category_id   Int        @id
+  name_category String
+  Producto      Producto[]
+}
+
+model Compra {
+  id_compra           Int        @id
+  expediente_cliente1 Int
+  id_product2         Int
+  id_prov2            Int
+  id_pedido1          Int
+  Cliente             Cliente    @relation(fields: [expediente_cliente1], references: [expediente_cliente])
+  Producto            Producto?  @relation("CompraProducto", fields: [productoId_product], references: [id_product])
+  Proveedor           Proveedor? @relation(fields: [id_prov2], references: [id_prov])
+  Ticket              Ticket?    @relation(fields: [id_pedido1], references: [id_pedido])
+  productoId_product  Int?
+}
+
+model Producto {
+  id_product           Int        @id
+  name_product         String
+  descrip_product      String?
+  ingredientes_product String?
+  precio_product       Float
+  status_product       Boolean
+  category_id1         Int
+  offers_product       Float?
+  id_prov1             Int?
+  Proveedor            Proveedor? @relation(fields: [id_prov1], references: [id_prov])
+  Compra               Compra[]   @relation("CompraProducto")
+  categoria            Categoria  @relation(fields: [category_id1], references: [category_id])
+}
+
+model Ticket {
+  id_pedido            Int      @id
+  producto_pedido      String
+  total_precio_predido Float
+  status_pedido        String?
+  fecha_pedido         DateTime
+  Compra               Compra[]
+}
