@@ -1,19 +1,22 @@
+// Requerimientos de librerias de npm ----------------------------------------------------------------
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 var ruta=require("express").Router();
 
+// Ruta principal ----------------------------------------------------------------
 ruta.get("/",(req,res) => {
     res.render("login");
 });
+// Ruta de inicio se usa solamente cuando ya ingresamos seccion ----------------------------------------------------------------
 ruta.get("/inicio",(req,res) => {
     res.render("inicio");
 });
-
+// Ruta de reegistrar usuario ----------------------------------------------------------------
 ruta.get("/register", async(req, res) => {
   res.render("register"); 
 });
-
+// Ruta de incercion de nuevo usuario a la base  ----------------------------------------------------------------
 ruta.post("/register", async (req, res) => {
   const { username, name, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10); // Encripta la contraseña utilizando bcrypt
@@ -35,7 +38,7 @@ ruta.post("/register", async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 });
-
+// Ruta de inicio para poner las credenciales ----------------------------------------------------------------
 ruta.post("/inicio", async (req, res) => {
   const { login, password } = req.body;
 
@@ -62,26 +65,53 @@ ruta.post("/inicio", async (req, res) => {
     console.log("Inicio de sesión exitoso");
   } catch (error) {
     console.log("Error al verificar las credenciales:", error);
+    res.status(500);
+    res.redirect("/error")
+  }
+});
+// Ruta del proivedor Vero ----------------------------------------------------------------  
+ruta.get("/provVero", async (req,res) => {
+  try {
+    const productos = await prisma.producto.findMany({
+      where: {
+        id_prov1: 2, // Reemplaza ID_DEL_PROVEEDOR_VERO con el ID real del proveedor Vero en tu base de datos
+      },
+    });
+    res.render("provVero", { productos });
+    console.log("Accesoo a vero");
+  } catch (error) {
+    console.log("Error al obtener los productos del proveedor Vero:", error);
     res.status(500).send("Error interno del servidor");
   }
 });
-
-
-
-  
-ruta.get("/provVero",(req,res) => {
-    res.render("provVero");
+// Ruta del proivedor Almaguer ----------------------------------------------------------------  
+ruta.get("/provAlmaguer",async (req,res) => {
+  try {
+    const productos = await prisma.producto.findMany({
+      where: {
+        id_prov1: 1, // Reemplaza ID_DEL_PROVEEDOR_VERO con el ID real del proveedor Vero en tu base de datos
+      },
+    });
+    res.render("provAlmaguer", { productos });
+    console.log("Acceso a provAlmaguer");
+  } catch (error) {
+    console.log("Error al obtener los productos del proveedor Almaguer:", error);
+    res.status(500).send("Error interno del servidor");
+  }
 });
-ruta.get("/provAlmaguer",(req,res) => {
-    res.render("provAlmaguer");
-});
+// Ruta sobre nosotros ----------------------------------------------------------------  
 ruta.get("/aboutus",(req,res) => {
     res.render("aboutus");
 });
+// Ruta de inico de seccion ----------------------------------------------------------------  
 ruta.get("/login",(req,res) => {
   res.render("login");
 });
+// Ruta de carrito de compras ----------------------------------------------------------------  
 ruta.get("/shopingCart",(req,res) => {
   res.render("shopingCart");
+});
+ruta.get("/error",(req,res) => {
+  res.render("error");
 });
 module.exports = ruta;

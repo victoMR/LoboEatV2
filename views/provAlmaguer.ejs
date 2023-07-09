@@ -82,6 +82,18 @@
       </div>
     </div>
   </div>
+  <div class="grid-container">
+    <% productos.forEach((producto) => { %>
+      <div class="grid-item">
+        <img src="<%= producto.imagen %>" alt="Descripción de la imagen" />
+        <div class="overlay">
+          <span id="titulo"><%= producto.name_product %> $<%= producto.precio_product %></span>
+          <span class="text" id="description" name="descrip_product"><%= producto.descrip_product %></span>
+          <span class="text" id="ingredients"><%= producto.ingredientes_product %></span>
+        </div>
+      </div>
+    <% }) %>
+  </div>
   <div class="containerpopup"></div>
   <div class="popup" id="popup">
     <span class="close-button">&times;</span>

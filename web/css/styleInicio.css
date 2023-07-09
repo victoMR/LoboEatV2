@@ -1,62 +1,73 @@
 @media (max-width: 1023px) {
-  .loader {
-      height: auto;
-  }
+    .loader {
+        height: auto;
+    }
 
-  .background {
-      height: 50%;
-  }
+    .background {
+        height: 50%;
+    }
 
-  .logo {
-      height: 10%;
-  }
+    .logo {
+        height: 10%;
+    }
 
-  menu {
-      width: 100%;
-  }
+    menu {
+        width: 100%;
+    }
 
-  .dropdown-menu {
-      position: static;
-      top: auto;
-      right: auto;
-      width: 100%;
-      height: auto;
-  }
+    .dropdown-menu {
+        position: static;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+    }
 
-  .dropdown-menu li {
-      margin-top: 10px;
-      margin-bottom: 20px;
-  }
+    .dropdown-menu li {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 
-  .dropdown-menu a {
-      font-size: 25px;
-  }
+    .dropdown-menu a {
+        font-size: 25px;
+    }
 
-  .shopping-icon,
-  .hamburger-icon {
-      font-size: 15px;
-      padding-left: 10px;
-  }
+    .shopping-icon,
+    .hamburger-icon {
+        font-size: 40px;
+        /* Ajusta el tamaño del icono según necesites */
+        color: #000000;
+        /* Ajusta el color del icono según tus preferencias */
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        border-radius: 4px;
+    }
 
-  .provider-container {
-      grid-template-columns: repeat(1, 1fr);
-      grid-gap: 1px;
-  }
+    .shopping-icon,
+    .hamburger-icon:hover {
+        transform: scale(1.2);
+    }
 
-  .provider-image {
-      margin-left: 0;
-      width: 100%;
-      height: 850px;
-  }
 
-  .provider-name {
-      font-size: 20px;
-  }
-  
-  .grid-item img {
-      width: 50%;
-      height: auto;
-  }
+    .provider-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1px;
+    }
+
+    .provider-image {
+        margin-left: 0;
+        width: 100%;
+        height: 850px;
+    }
+
+    .provider-name {
+        font-size: 20px;
+    }
+
+    .grid-item img {
+        width: 50%;
+        height: auto;
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1925px) {
@@ -156,14 +167,18 @@ menu {
     font-weight: bolder;
 }
 
+.cart,
 .shopping-icon,
 .hamburger-icon {
+    position: relative;
     font-size: 40px;
     /* Ajusta el tamaño del icono según necesites */
     color: #000000;
     /* Ajusta el color del icono según tus preferencias */
     cursor: pointer;
     transition: transform 0.3s ease;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
 .shopping-icon,
@@ -171,19 +186,31 @@ menu {
     transform: scale(1.2);
 }
 
+.cartAmount {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 3px;
+}
+
 .provider-container {
     display: grid;
     grid-template-columns: repeat(2, 0.5fr);
     grid-gap: 20px;
-  }
-  
-  .provider {
-    display: flex; /* Agregado: hace que los elementos internos se ajusten correctamente */
+}
+
+.provider {
+    display: flex;
+    /* Agregado: hace que los elementos internos se ajusten correctamente */
     position: relative;
     overflow: hidden;
-  }
-  
-  .provider-image {
+}
+
+.provider-image {
     margin-left: 65px;
     width: 80%;
     height: 100%;
@@ -191,14 +218,14 @@ menu {
     transition: opacity 0.3s ease;
     z-index: 2;
 
-  }
-  
-  .provider:hover .provider-image {
+}
+
+.provider:hover .provider-image {
     opacity: 0.5;
-   
-  }
-  
-  .provider:hover::after {
+
+}
+
+.provider:hover::after {
     content: '';
     position: absolute;
     bottom: 1px;
@@ -209,10 +236,10 @@ menu {
     padding: 0px;
     font-size: 32px;
     transition: opacity 0.3s ease;
-    opacity: 1;  
-  }
-  
-  .provider::after {
+    opacity: 1;
+}
+
+.provider::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -223,9 +250,9 @@ menu {
     opacity: 0;
     z-index: 1;
     transition: opacity 0.3s ease;
-  }
-  
-  .provider-name {
+}
+
+.provider-name {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -237,24 +264,24 @@ menu {
     opacity: 0;
     transition: opacity 0.2s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    z-index: 2; 
-  }
-  
-  .provider:hover .provider-name {
+    z-index: 2;
+}
+
+.provider:hover .provider-name {
     opacity: 0.6;
     font-size: 60px;
     text-align: center;
     color: aliceblue;
     filter: brightness(10);
     filter: hue-rotate(10);
-  }
-  
-  .provider a {
+}
+
+.provider a {
     display: block;
     width: 100%;
     height: 100%;
-  }
-  
-  .provider-image{
-      color:#d17b41;
-  }
+}
+
+.provider-image {
+    color: #d17b41;
+}
