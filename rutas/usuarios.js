@@ -11,7 +11,7 @@ ruta.get("/inicio",(req,res) => {
 });
 
 ruta.get("/register", async(req, res) => {
-  res.render("register"); // Asegúrate de que la ruta sea correcta y coincida con la ubicación del archivo
+  res.render("register"); 
 });
 
 ruta.post("/register", async (req, res) => {

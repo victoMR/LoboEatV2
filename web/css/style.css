@@ -1,3 +1,125 @@
+@media (max-width: 1023px) {
+  .loader {
+      height: auto;
+  }
+
+  .background {
+      height: 50%;
+  }
+
+  .logo {
+      height: 5%;
+  }
+
+  menu {
+      position: sticky;
+      top: 0;
+      width: 100%;
+  }
+
+  .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px 10px;
+      border: 1px solid #000000;
+      border-radius: 15px;
+      margin: 50px;
+  }
+
+  #form {
+      padding-top: 25px;
+      width: 100%;
+      height: auto;
+      padding-top: 10px;
+      font-size: 20px;
+
+  }
+
+  #form input[type="text"] {
+    width: 90%;
+    padding-top: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 25px;
+  }
+
+  #password {
+    width: 90%;
+    padding-top: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 25px;
+  }
+
+  #form input[type="password"]:focus {
+    outline: none;
+    border-color: #68a423;
+    /* Cambia el color del borde cuando está enfocado */
+  }
+
+  #form input[type="password"]:focus {
+      width: 90%;
+      padding-top: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      font-size: 25px;
+  }}
+  #form input[type="text"]:focus {
+      outline: none;
+      border-color: #68a423;
+      /* Cambia el color del borde cuando está enfocado */
+    }
+  
+    #form input[type="password"]:focus {
+      outline: none;
+      border-color: #68a423;
+      /* Cambia el color del borde cuando está enfocado */
+    }
+
+  .button_login {
+      width: 50%;
+      margin-top: 20px;
+      font-size: 18px;
+  }
+
+  #form p {
+      padding-top: 30px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      text-align: center;
+  }
+
+  #_z159 {
+      margin-left: 0;
+  }
+
+  .footer {
+      padding: 20px 10px;
+      font-size: 16px;
+  }
+
+  .footer a {
+      margin: 0 5px;
+  }
+
+  .footer i {
+      font-size: 16px;
+  }
+
+  .footer .utsjr-button {
+      width: 100px;
+      height: auto;
+      padding: 8px 10px;
+      background-size: cover;
+      background-position: center center;
+  }
+
 @media (min-width: 1024px) and (max-width: 1925px) {
     .loader {
       display: flex;
@@ -118,7 +240,7 @@
       }
     
     
-      button{
+      .button_login{
         background-color: #68a423;
         color: #ffffff;
         font-size: 17px;
@@ -137,7 +259,7 @@
         text-decoration: none;
       }
     
-      button:hover {
+      .button_login:hover {
         background-color: #d28125;
         /* Cambia el color de fondo cuando se pasa el mouse */
       }

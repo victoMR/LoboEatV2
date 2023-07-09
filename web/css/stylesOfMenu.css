@@ -44,38 +44,34 @@
 }
 
 menu {
-    position: sticky;
-    top: 0;
-    width: 97.2%;
-    background-color: #ffffff;
-    /* Cambia el color de fondo según tus necesidades */
-    border-bottom: 1px solid grey;
-    border-radius: 1px;
-    z-index: 999;
-    /* Asegura que el menú se muestre por encima de otros elementos */
-    padding-bottom: 5px;
-    margin-bottom: 50px;
+  position: sticky;
+  width: 100%;
+  background-color: #ffffff;
+  /* Cambia el color de fondo según tus necesidades */
+  z-index: 999;
+  margin-bottom: 10px;
 }
 
 .menu-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 500px;
-    /* Ancho del menú desplegable */
-    height: 800px;
-    /* Alto del menú desplegable */
-    background-color: rgba(0, 0, 0, 0.905);
-    padding: 20px;
-    display: none;
-    z-index: 9999;
-    /* Asegura que el menú se muestre por encima de otros elementos */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 400px;
+  /* Ancho del menú desplegable */
+  height: 700px;
+  /* Alto del menú desplegable */
+  background-color: rgba(0, 0, 0, 0.875);
+  padding: 10px;
+  display: none;
+  z-index: 1;
+  /* Asegura que el menú se muestre por encima de otros elementos */
 }
 
 .dropdown-menu ul {
@@ -287,5 +283,22 @@ opacity: 0; /* Opacidad reducida, elemento deshabilitado */
     padding: 0;
     /* Agrega cualquier otro estilo que desees */
   }
-
+  .popup-button{
+    background-color: #68a423;
+        color: #ffffff;
+        font-size: 17px;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 80px;
+        /* Agrega un margen superior para separar el botón del resto del formulario */
+        align-self: center;
+        margin: 20px auto; /* Establece un margen superior e inferior de 20px y auto para los márgenes izquierdo y derecho */
+        display: block;
+  }
+  .popup-button:hover {
+    background-color: #d28125;
+    /* Cambia el color de fondo cuando se pasa el mouse */
+  }
   
