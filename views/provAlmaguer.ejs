@@ -3,8 +3,9 @@
 <script src="/web/js/carrito.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet" href="/web/css/styleInicio.css">
+<link rel="stylesheet" href="/web/css/stylesOfMenu.css"> 
 <menu>
+
     <div class="menu-container">
       <div class="cart">
         <a href="/shopingCart" style="text-decoration: none;">
@@ -27,10 +28,8 @@
       </div>
     </div>
   </menu>
-<link rel="stylesheet" href="/web/css/stylesOfMenu.css">
 <div class="grid-container">
-  
-
+      
       <div class="grid-item">
         <img src="https://cdn.pixabay.com/photo/2017/12/27/04/28/tortilla-3041938_1280.jpg" alt="Descripción de la imagen" />
         <div class="overlay">
@@ -111,23 +110,28 @@
   </div>
   <div class="grid-container">
     <% productos.forEach((producto) => { %>
+      <span id="id" style="display: none;"><%= producto.id_product %></span>
       <div class="grid-item">
-        <img src="<%= producto.imagen %>" alt="Descripción de la imagen" />
+        <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" alt="Descripción de la imagen" />
         <div class="overlay">
           <span id="titulo"><%= producto.name_product %> $<%= producto.precio_product %></span>
           <span class="text" id="description" name="descrip_product"><%= producto.descrip_product %></span>
           <span class="text" id="ingredients"><%= producto.ingredientes_product %></span>
         </div>
+        <!--  en imagen debemos poner este cual conecta a la base de datos  <%= producto.imagen %> -->
       </div>
     <% }) %>
   </div>
+  
+  
   <div class="containerpopup"></div>
   <div class="popup" id="popup">
     <span class="close-button">&times;</span>
-    <h2 id="popup-title" class="popup-title"></h2>
+    <h2 id="popup-title" class="popup-title top-50"></h2>
     <div id="popup-image" class="popup-image"></div>
-    <div id="popup-description" class="popup-description"></div>
+    <div id="popup-description" class="popup-description text-center fs-5 m-3"></div>
     <ul id="popup-ingredients" class="popup-ingredients"></ul>    
-    <button id="popup-button">Agregar al carrito</button>
+    <button onclick="increment()" id="popup-button" class="popup-button">Agregar al carrito</button>
+
   </div>
   

@@ -22,6 +22,7 @@
     "embellish.css": "^6.1.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "mdbootstrap": "^4.20.0",
     "mx": "^1.0.0-0",
     "nodemon": "^2.0.22",
     "prisma": "^4.16.2",

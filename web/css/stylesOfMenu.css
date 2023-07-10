@@ -233,13 +233,12 @@ opacity: 0; /* Opacidad reducida, elemento deshabilitado */
   }
   .popup {
     position:fixed;
-    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
     max-width: 500px;
     background-color: white;
-    padding: 20px;
+    padding: 80px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -291,7 +290,7 @@ opacity: 0; /* Opacidad reducida, elemento deshabilitado */
 
     /* Agrega cualquier otro estilo que desees */
   }
-  
+  button,
   .popup-ingredients {
     /* Estilos para la lista de ingredientes del popup */
     list-style: none;
