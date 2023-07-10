@@ -109,9 +109,10 @@ ruta.get("/login",(req,res) => {
 });
 // Ruta de carrito de compras ----------------------------------------------------------------  
 ruta.get("/shopingCart",(req,res) => {
-  res.render("shopingCart");
+  res.render('shopingCart')
 });
 ruta.get("/error",(req,res) => {
   res.render("error");
 });
+
 module.exports = ruta;

@@ -100,19 +100,34 @@ menu {
     font-weight: bolder;
 }
 
+.cart,
 .shopping-icon,
 .hamburger-icon {
+    position: relative;
     font-size: 40px;
     /* Ajusta el tamaño del icono según necesites */
     color: #000000;
     /* Ajusta el color del icono según tus preferencias */
     cursor: pointer;
     transition: transform 0.3s ease;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
 .shopping-icon,
 .hamburger-icon:hover {
     transform: scale(1.2);
+}
+
+.cartAmount {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 3px;
 }
 
 .grid-container {
