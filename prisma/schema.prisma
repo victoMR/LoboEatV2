@@ -7,63 +7,55 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model cliente {
+model Cliente {
   expediente_cliente Int      @id
   name_cliente       String
   password_cliente   String?
   status_cliente     Boolean?
-  compra             compra[]
 }
 
-model provedor {
-  id_prov     Int        @id
+model Provedor {
+  id_prov     Int      @id
   name_prov   String
   stand_prov  String?
   status_prov Boolean?
   tel_prov    String?
   email_prov  String?
-  producto    producto[]
-  compra      compra[]
 }
 
 model Categoria {
-  category_id   Int        @id
+  category_id   Int    @id
   name_category String
-  producto      producto[]
 }
 
-model producto {
-  id_product           Int       @id
+model Producto {
+  id_product           Int     @id
   name_product         String
   descrip_product      String?
   ingredientes_product String?
   precio_product       Float
   status_product       Boolean
   category_id1         Int
-  offers_product       Decimal?
-  id_prov1             Int
-  categoria            Categoria @relation(fields: [category_id1], references: [category_id])
-  provedor             provedor  @relation(fields: [id_prov1], references: [id_prov])
-  compra               compra[]
+  offers_product       Int?
 }
 
-model ticket {
+model Ticket {
   id_pedido            Int      @id
   producto_pedido      String
   total_precio_predido Float
   status_pedido        String?
   fecha_pedido         DateTime
-  compra               compra[]
 }
 
-model compra {
-  id_compra           Int      @unique
+model Compra {
+  id_compra           Int @id
   expediente_cliente1 Int
   id_product2         Int
   id_prov2            Int
   id_pedido1          Int
-  cliente             cliente  @relation(fields: [expediente_cliente1], references: [expediente_cliente])
-  producto            producto @relation(fields: [id_product2], references: [id_product])
-  provedor            provedor @relation(fields: [id_prov2], references: [id_prov])
-  ticket              ticket   @relation(fields: [id_pedido1], references: [id_pedido])
+
+  @@index([expediente_cliente1], name: "expediente_cliente1")
+  @@index([id_product2], name: "id_product2")
+  @@index([id_prov2], name: "id_prov2")
+  @@index([id_pedido1], name: "id_pedido1")
 }
