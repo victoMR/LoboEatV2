@@ -1,8 +1,10 @@
-var express = require("express");
-var path = require("path");
-var session= require("express-session");
-var usrRuta= require("./rutas/usuarios");
-require("dotenv").config();
+const dotenv = require('dotenv');
+const express = require('express');
+const path = require('path');
+const session = require('express-session');
+const usrRuta = require('./rutas/usuarios');
+
+dotenv.config();
 
 var app = express();
 app.set('view engine', 'ejs');
@@ -15,22 +17,8 @@ app.use(session({
     saveUninitialized: true
 }));
 
-function findAvailablePort(ports, callback) {
-  if (ports.length === 0) {
-    throw new Error('No available ports found');
-  }
 
-  var port = ports.shift();
-  app.listen(port, function(error) {
-    if (error && error.code === 'EADDRINUSE') {
-      findAvailablePort(ports, callback);
-    } else {
-      callback(port);
-    }
-  });
-}
-
-var portSequence = [8000, 8001, 8002, 8003, 8004, 8005];
+var port = process.env.PORT || 3000;
 
 findAvailablePort(portSequence, function(port) {
   console.log(`Servidor en http://localhost:${port}`);
