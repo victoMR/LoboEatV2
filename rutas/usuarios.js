@@ -70,26 +70,27 @@ ruta.post("/inicio", async (req, res) => {
   }
 });
 // Ruta del proivedor Vero ----------------------------------------------------------------  
-ruta.get("/provVero", async (req,res) => {
+ruta.get("/provVero", async (req, res) => {
   try {
     const productos = await prisma.producto.findMany({
       where: {
-        id_prov1: 2, // Reemplaza ID_DEL_PROVEEDOR_VERO con el ID real del proveedor Vero en tu base de datos
+        id_product: 2, // Cambia id_prov1 a id_product
       },
     });
     res.render("provVero", { productos });
-    console.log("Accesoo a vero");
+    console.log("Acceso a vero");
   } catch (error) {
     console.log("Error al obtener los productos del proveedor Vero:", error);
     res.status(500).send("Error interno del servidor");
   }
 });
+
 // Ruta del proivedor Almaguer ----------------------------------------------------------------  
 ruta.get("/provAlmaguer",async (req,res) => {
   try {
     const productos = await prisma.producto.findMany({
       where: {
-        id_prov1: 1, // Reemplaza ID_DEL_PROVEEDOR_VERO con el ID real del proveedor Vero en tu base de datos
+        id_product: 1, // Reemplaza ID_DEL_PROVEEDOR_VERO con el ID real del proveedor Vero en tu base de datos
       },
     });
     res.render("provAlmaguer", { productos });

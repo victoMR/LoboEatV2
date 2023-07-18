@@ -20,7 +20,7 @@ app.use(session({
 
 var port = process.env.PORT || 3000;
 
-findAvailablePort(portSequence, function(port) {
+app.listen(port, () => {
   console.log(`Servidor en http://localhost:${port}`);
 });
 
