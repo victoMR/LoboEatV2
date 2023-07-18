@@ -1,10 +1,12 @@
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Cliente {
@@ -54,8 +56,8 @@ model Compra {
   id_prov2            Int
   id_pedido1          Int
 
-  @@index([expediente_cliente1], name: "expediente_cliente1")
-  @@index([id_product2], name: "id_product2")
-  @@index([id_prov2], name: "id_prov2")
-  @@index([id_pedido1], name: "id_pedido1")
+  @@index([expediente_cliente1], map: "expediente_cliente1")
+  @@index([id_product2], map: "id_product2")
+  @@index([id_prov2], map: "id_prov2")
+  @@index([id_pedido1], map: "id_pedido1")
 }
