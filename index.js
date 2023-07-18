@@ -3,11 +3,6 @@ var path = require("path");
 var session= require("express-session");
 var usrRuta= require("./rutas/usuarios");
 require("dotenv").config();
-dotenv.config();
-
-const dbUrl = process.env.DATABASE_URL;
-console.log('Credenciales de acceso:', dbUrl);
-
 
 var app = express();
 app.set('view engine', 'ejs');
