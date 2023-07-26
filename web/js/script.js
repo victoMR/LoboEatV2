@@ -1,8 +1,9 @@
-//sript de la pantalla de carga 
-window.addEventListener("load", function() {
-  const loader = document.querySelector(".loader");
+// Espera a que el contenido de la página se haya cargado completamente
+window.addEventListener("load", function () {
+  // Oculta el loader
+  var loader = document.getElementById("loader");
   loader.style.display = "none";
-});
+})
 
 //sript de el menu hamburger
 document.addEventListener("DOMContentLoaded", function() {

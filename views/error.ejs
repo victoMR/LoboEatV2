@@ -1,3 +1,18 @@
-<%- include("templates/encabezado")%>
-<%- include("templates/menulogin")%>
-<h1 class="m-4">dsasaadasdd</h1>
+<%- include("templates/encabezado") %>
+<%- include("templates/menulogin") %>
+<div class="position-relative" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+  <picture class="position-absolute top-80 start-50 translate-middle" style="transform: translate(-50%, -50%); width: 40%; height: 40%;">
+    <img class="animate__animated animate__jello" src="../web/Img/404-page-error.png" alt="Cactus Png vectors by Lovepik.com" height="100%" width="100%">
+  </picture>
+</div>
+<script>
+  // Function to redirect to the main page
+  function redirectToMainPage() {
+    window.location.href = "./login";
+  }
+  // Wait for DOMContentLoaded event before redirecting
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(redirectToMainPage, 1500);
+  });
+</script>
+
