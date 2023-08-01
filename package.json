@@ -1,7 +1,7 @@
 {
   "name": "loboeatv2",
   "version": "1.0.0",
-  "description": "",
+  "description": "App web de pedir comida en linea para la cafeteria de la UTSJR",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index",
@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^3.9.1",
     "animate.css": "^4.1.1",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.3.0",
@@ -27,10 +27,7 @@
     "mx": "^1.0.0-0",
     "next": "^13.4.10",
     "nodemon": "^2.0.22",
-    "prisma-client": "^0.0.0"
+    "prisma": "^3.9.1"
   },
-  "devDependencies": {
-    "optimizer-image": "^1.0.5",
-    "prisma": "^5.0.0"
-  }
+  "devDependencies": {}
 }
