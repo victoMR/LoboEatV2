@@ -38,6 +38,7 @@ CREATE TABLE `Producto` (
     `status_product` BOOLEAN NOT NULL,
     `category_id1` INTEGER NOT NULL,
     `offers_product` INTEGER NULL,
+    `provedor` INTEGER NULL,
 
     PRIMARY KEY (`id_product`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

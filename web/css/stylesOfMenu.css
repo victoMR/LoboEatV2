@@ -1,45 +1,87 @@
+@media (max-width: 1023px) {
+  /* Agrega una imagen de fondo */
+
+  /* Ajusta el ancho del menú desplegable */
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  /* Ajusta el tamaño de fuente para dispositivos móviles */
+  .dropdown-menu a {
+    font-size: 30px;
+  }
+
+  .grid-container {
+    /* Ajusta el número de columnas y el espacio entre los productos */
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  .grid-item img {
+    /* Ajusta el tamaño de la imagen de los productos en dispositivos móviles */
+    max-width: 100%;
+  }
+
+  .popup {
+    /* Ajusta el tamaño del pop-up en dispositivos móviles */
+    width: 90%;
+    padding: 40px;
+  }
+
+  .popup-button {
+    /* Ajusta el tamaño del botón en dispositivos móviles */
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+
+  /* Agrega un margen inferior para el contenedor principal en dispositivos móviles */
+  .grid-container {
+    margin-bottom: 50px;
+  }
+}
+
 @media (min-width: 1024px) and (max-width: 1925px) {
-    .loader {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        background-color: #d17b41;
-    }
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #d17b41;
+  }
 
-    .background {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        background-image: linear-gradient(to bottom, #d17b41 50%, #a9d18e 100%);
-        background-color: #a9d18e;
-        opacity: 0.8;
-        z-index: -1;
-    }
+  .background {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(to bottom, #d17b41 50%, #a9d18e 100%);
+    background-color: #a9d18e;
+    opacity: 0.8;
+    z-index: -1;
+  }
 
-    .logo {
-        width: 10px;
-        height: 10%;
-        z-index: 1;
-        mix-blend-mode: multiply;
-    }
+  .logo {
+    width: 10px;
+    height: 10%;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
 
-    body {
-        margin: 0;
-        background-image: url("../Img/wave.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+  body {
+    margin: 0;
+    background-image: url("../Img/wave.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
-    }
+  }
 
 }
 
@@ -75,85 +117,87 @@ menu {
 }
 
 .dropdown-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .dropdown-menu li {
-    margin-top: 40px;
-    margin-bottom: 80px;
-    text-align: center;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  text-align: center;
 }
 
 .dropdown-menu a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 35px;
-    /* Tamaño de fuente de los enlaces */
-    font-family: Arial, sans-serif;
-    /* Establece la fuente deseada */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 35px;
+  /* Tamaño de fuente de los enlaces */
+  font-family: Arial, sans-serif;
+  /* Establece la fuente deseada */
 }
 
 .dropdown-menu a:hover {
-    color: #a9d18e;
-    font-weight: bolder;
+  color: #a9d18e;
+  font-weight: bolder;
 }
 
 .cart,
 .shopping-icon,
 .hamburger-icon {
-    position: relative;
-    font-size: 40px;
-    /* Ajusta el tamaño del icono según necesites */
-    color: #000000;
-    /* Ajusta el color del icono según tus preferencias */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border-radius: 4px;
-    text-transform: uppercase;
+  position: relative;
+  font-size: 40px;
+  /* Ajusta el tamaño del icono según necesites */
+  color: #000000;
+  /* Ajusta el color del icono según tus preferencias */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .shopping-icon,
 .hamburger-icon:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .cartAmount {
-    position: absolute;
-    top: -15px;
-    right: -10px;
-    font-size: 16px;
-    background-color: red;
-    color: white;
-    border-radius: 8px;
-    padding: 3px;
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  padding: 3px;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
 }
 
 .grid-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
 }
 
-.text{
-opacity: 0; /* Opacidad reducida, elemento deshabilitado */
-  pointer-events: none; /* Deshabilita los eventos del puntero en el elemento */
+.text {
+  opacity: 0;
+  /* Opacidad reducida, elemento deshabilitado */
+  pointer-events: none;
+  /* Deshabilita los eventos del puntero en el elemento */
   position: absolute;
   top: 0;
   left: 0;
@@ -161,158 +205,164 @@ opacity: 0; /* Opacidad reducida, elemento deshabilitado */
 
 /*codigo aqui*/
 .grid-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .overlay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .vertical-text {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    white-space: nowrap;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+}
+
 
 /*aqui termina*/
 
 .grid-item img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-    border-radius: 50px;
-    cursor: pointer;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .grid-item:hover img {
-    transform: scale(1.2);
-    border-radius: 50px;
-    cursor: pointer;
+  transform: scale(1.2);
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .grid-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 
 }
 
 .grid-item:hover .overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
 .grid-item .overlay span {
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 10px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 10px;
 
 }
+
 .containerpopup {
-    position: relative;
-    z-index: 1;
-  }
-  .hidden {
-    display: none;
-  }
-  .popup {
-    position:fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 500px;
-    background-color: white;
-    padding: 80px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    display: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 25px;
-    top: 95px;
-    height: auto;
-  }
-  
-  #popup-content {
-    margin-bottom: 40px;
-  }
-  
-  #popup-image img {
-    max-width: 50%;
-    max-height: 300px;
-    border-radius: 10px;
-    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 52px;
-    cursor: pointer;
-  }
-  
-  .popup-title {
-    /* Estilos para el título del popup */
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
+  position: relative;
+  z-index: 1;
+}
 
-    /* Agrega cualquier otro estilo que desees */
-  }
-  
-  .popup-description {
-    /* Estilos para la descripción del popup */
-    padding-top: 20px;
-    font-size: 15px;
-    color: #c02222;
-    text-align: justify;
+.hidden {
+  display: none;
+}
+
+.popup {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  padding: 80px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 25px;
+  top: 95px;
+  height: auto;
+}
+
+#popup-content {
+  margin-bottom: 40px;
+}
+
+#popup-image img {
+  max-width: 50%;
+  max-height: 300px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 52px;
+  cursor: pointer;
+}
+
+.popup-title {
+  /* Estilos para el título del popup */
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+
+  /* Agrega cualquier otro estilo que desees */
+}
+
+.popup-description {
+  /* Estilos para la descripción del popup */
+  padding-top: 20px;
+  font-size: 15px;
+  color: #c02222;
+  text-align: justify;
 
 
-    /* Agrega cualquier otro estilo que desees */
-  }
-  button,
-  .popup-ingredients {
-    /* Estilos para la lista de ingredientes del popup */
-    list-style: none;
-    padding: 0;
-    /* Agrega cualquier otro estilo que desees */
-  }
-  .popup-button{
-    background-color: #68a423;
-        color: #ffffff;
-        font-size: 17px;
-        border: none;
-        padding: 15px 20px;
-        border-radius: 10px;
-        cursor: pointer;
-        margin-top: 80px;
-        /* Agrega un margen superior para separar el botón del resto del formulario */
-        align-self: center;
-        margin: 20px auto; /* Establece un margen superior e inferior de 20px y auto para los márgenes izquierdo y derecho */
-        display: block;
-  }
-  .popup-button:hover {
-    background-color: #d28125;
-    /* Cambia el color de fondo cuando se pasa el mouse */
-  }
-  
+  /* Agrega cualquier otro estilo que desees */
+}
+
+button,
+.popup-ingredients {
+  /* Estilos para la lista de ingredientes del popup */
+  list-style: none;
+  padding: 0;
+  /* Agrega cualquier otro estilo que desees */
+}
+
+.popup-button {
+  background-color: #68a423;
+  color: #ffffff;
+  font-size: 17px;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 80px;
+  /* Agrega un margen superior para separar el botón del resto del formulario */
+  align-self: center;
+  margin: 20px auto;
+  /* Establece un margen superior e inferior de 20px y auto para los márgenes izquierdo y derecho */
+  display: block;
+}
+
+.popup-button:hover {
+  background-color: #d28125;
+  /* Cambia el color de fondo cuando se pasa el mouse */
+}

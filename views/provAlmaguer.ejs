@@ -1,144 +1,59 @@
-<!DOCTYPE html>
 <%- include("templates/encabezado")%>
 <script src="/web/js/almaguer.js" defer></script>
 <script src="/web/js/carrito.js" defer></script>
+<link rel="stylesheet" href="/web/css/stylesOfMenu.css"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet" href="/web/css/stylesOfMenu.css"> 
 <menu>
-    <!-- Rest of the HTML code -->
-    <div class="menu-container">
-      <div class="cart">
-        <a href="/shopingCart" style="text-decoration: none;">
-          <span class="shopping-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <div class="cartAmount">0</div>
-          </span>
-        </a>
-      </div>
-      <img id="logo" src="/web/Img/Grupo 1@2x.png" alt="Logo" height="70px">
-      <span class="hamburger-icon"><i class="fas fa-bars"></i></span>
-      <div class="dropdown-menu">
-        <ul>
-          <li><a href="/inicio">Inicio</a></li>
-          <li><a href="/provAlmaguer">Proveedor Almaguer</a></li>
-          <li><a href="/provVero">Proveedor Vero</a></li>
-          <li><a href="/aboutus">F&Q</a></li>
-          <li><a href="/login">Cerrar Sesión</a></li>
-        </ul>
-      </div>
-    </div>
-  </menu>
-  <style>
-      .hidden {
-          display: none;
-      }
-  </style>
-  <div class="grid-container">
-      <% let i = 0; %>   
-      <div class="grid-item">
-        <img src="https://cdn.pixabay.com/photo/2017/12/27/04/28/tortilla-3041938_1280.jpg" alt="Descripción de la imagen" />
-        <div class="overlay">
-          <span class="text" id="description">Deliciosa orden de tres tacos de pastor</span>
-          <span id="titulo">Orden de tacos  $40.00</span> <br>
-          <span class="text" id="ingredients">-Tortilla, -Pastor, -Verdura</span>
-        </div>
-      </div>
-    <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_1280.jpg" alt="Descripción de la imagen" />
-      <div class="overlay">
-        <span class="text" id="description">Deliciosas enchiladas rojas</span>
-        <span id="titulo">Enchiladas  $50.00 </span>
-        <span class="text" id="ingredients">-Tortilla, -Chile, -Verdura</span>
-      </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2014/09/27/13/46/question-mark-463497_1280.jpg" alt="Descripción de la imagen" />
-      <div class="overlay">
-        <span class="text" id="description">Este desayuno varia siempre ¡Descubre que podra ser! ¿Te atreves?</span>
-        <span>Desayuno del dia $55</span>
-        <span class="text" id="ingredients">Incluye:, -Sopa, -Plato fuerte, -Tortilla, -Agua</span>
-      </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2020/12/02/19/00/tacos-5798445_1280.jpg" alt="Descripción de la imagen" />
-      <div class="overlay">
-        <span class="text" id="description">Orden de cuatro ricos tacos dorados de pollo y papa. </span>
-        <span id="titulo">Tacos dorados $35.00 </span>
-        <span class="text" id="ingredients">-Pollo,-Papa, -Tortilla</span>
-      </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2015/07/12/14/26/coffee-842020_1280.jpg" alt="Descripción de la imagen" />
-      <div class="overlay">
-        <span class="text" id="description">Incluye una taza de cafe al gusto y dos revadanas de pan. </span>
-        <span id="titulo">Desayuno $25.00 </span>
-        <span class="text" id="ingredients">-Cafe, -Pan</span>
-      </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://media.istockphoto.com/id/641008428/es/foto/ensalada-de-frutas.jpg?s=1024x1024&w=is&k=20&c=1nDoEJEUqynjruG-U6azOtpX4gtOffGAjNesJInGFTQ=" alt="Descripción de la imagen" />
-      <div class="overlay">
-       
-        <span class="text" id="description">Combinacion  de distintas frutas para una exploción al paladar.  </span> 
-            <span id="titulo">Ensalada de frutas </span>
-        <span class="text" id="ingredients">-Manzana, -Fresa, -Kiwi </span>
-      </div>
-    </div>
 
-    <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2017/06/24/05/26/hot-dog-2436747_1280.jpg" alt="Descripción de la imagen" />
-      <div class="overlay">
-        <span class="text" id="description">Delicioso hot dog hecho con una jugosa salchicha,
-           envuelta en un pan de hot dog. ¡Una opción clásica que nunca decepciona!</span>
-        <span id="titulo">Hot dog $40.00 </span>
-        <span class="text" id="ingredients">-Salchicha, -Pan de hot dog fresco, -Otros(opcional)</span>
-      </div>
+  <div class="menu-container">
+    <div class="cart">
+      <a href="/shopingCart" style="text-decoration: none;">
+        <span class="shopping-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <div class="cartAmount">0</div>
+        </span>
+      </a>
     </div>
-
-    <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2019/11/19/16/56/mexican-food-4637913_1280.jpg" alt="Descripción de la imagen" />
-      <div class="overlay">
-        <span class="text" id="description">Rico pozole rojo....</span>
-        <span id="titulo">Pozole rojo $65.00 </span>
-        <span class="text" id="ingredients">-Carne de res,-Maiz, -Extras</span>
-      </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://cdn.pixabay.com/photo/2018/07/15/19/54/bruschetta-3540405_1280.jpg" alt="Descripción de la imagen" />
-      <div class="overlay">
-        <span class="text" id="description">Panes suaves y esponjosos con un centro tierno.
-           Ideales para el desayuno o la merienda, están cubiertos con frijoles refritos y queso derretido.</span>
-        <span id="titulo">Molletes $35.00 </span>
-        <span class="text" id="ingredients">-Pan, -Frijoles refritos, Queso rallado, -Pico de gallo</span>
-      </div>
+    <img id="logo" src="/web/Img/Grupo 1@2x.png" alt="Logo" height="70px">
+    <span class="hamburger-icon"><i class="fas fa-bars"></i></span>
+    <div class="dropdown-menu">
+      <ul>
+        <li><a href="/inicio">Inicio</a></li>
+        <li><a href="/provAlmaguer">Proveedor Almaguer</a></li>
+        <li><a href="/provVero">Proveedor Vero</a></li>
+        <li><a href="/aboutus">F&Q</a></li>
+        <li><a href="/login">Cerrar Sesión</a></li>
+      </ul>
     </div>
   </div>
-  <div class="grid-container">
-    <% productos.forEach((producto) => { %>
-      <span id="id<%= i %>" class="hidden"><%= producto.id_product %></span>
-      <div class="grid-item">
-          <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" alt="Descripción de la imagen" />
-          <div class="overlay">
-              <span id="titulo<%= i %>"><%= producto.name_product %> $<%= producto.precio_product %></span>
-              <span class="text" id="description<%= i %>" name="descrip_product"><%= producto.descrip_product %></span>
-              <span class="text" id="ingredients<%= i %>"><%= producto.ingredientes_product %></span>
-          </div>
-          <!--  en imagen debemos poner este cual conecta a la base de datos  <%= producto.imagen %> -->
+</menu>
+ <!-- Lista de productos -->
+<div class="grid-container animate__animated animate__rubberBand">
+  <% productos.forEach(producto => { %>
+    <% console.log(producto); %>
+    <span id="id<%= producto.id_product %>" class="hidden"><%= producto.id_product %></span>
+    <div class="grid-item">
+      <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" alt="Descripción de la imagen" />
+      <div class="overlay">
+        <span id="titulo<%= producto.id_product %>"><%= producto.name_product %> $<%= producto.precio_product %></span>
+        <span class="text" id="description<%= producto.id_product %>" name="descrip_product"><%= producto.descrip_product %></span>
+        <span class="text" id="ingredients<%= producto.id_product %>"><%= producto.ingredientes_product %></span>
       </div>
-  <% i++; }) %>
-  </div>
-
-  <!-- Rest of the HTML code -->
-  
+      <!--  en imagen debemos poner este cual conecta a la base de datos  <%= producto.imagen %> -->
+      <!-- Botón "Agregar al carrito" dentro del bucle forEach -->
+      
+    </div>
+  <% }) %>
+</div>
+  <!-- PopUp -->
   <div class="containerpopup"></div>
-  <div class="popup" id="popup">
+  <div class="popup animate__animated animate__backInRight" id="popup">
     <span class="close-button">&times;</span>
     <h2 id="popup-title" class="popup-title top-50"></h2>
     <div id="popup-image" class="popup-image"></div>
     <div id="popup-description" class="popup-description text-center fs-5 m-3"></div>
-    <ul id="popup-ingredients" class="popup-ingredients"></ul>    
-    <button onclick="increment()" id="popup-button" class="popup-button">Agregar al carrito</button>
-
-  </div>
-  
+    <ul id="popup-ingredients" class="popup-ingredients"></ul>
+    <!-- Botón "Agregar al carrito" dentro del pop-up -->
+    <button class="popup-button" data-productid="" data-productname="" data-productprice="">Agregar al carrito</button>
+  </div> 
