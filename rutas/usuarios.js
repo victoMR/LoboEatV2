@@ -1,8 +1,11 @@
 // Requerimientos de librerias de npm ----------------------------------------------------------------
 const { PrismaClient } = require('@prisma/client');
+const { Analytics } = require('@vercel/analytics');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 var ruta=require("express").Router();
+
+const analytics = Analytics();
 
 // Ruta principal ----------------------------------------------------------------
 ruta.get("/",(req,res) => {
