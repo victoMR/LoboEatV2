@@ -10,7 +10,7 @@
   <div id="form">
     <form action="/inicio" method="post"> <!-- Cambiado el método a "post" -->
       <input type="text" name="login" id="login" placeholder="Expediente" autocomplete="on" autofocus maxlength="10">
-      <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="on">
+      <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="on" maxlength="20" minlength="8">
       <button class="button_login" type="submit">Iniciar Sesión</button>
       <p><a href="#">¿Olvidaste tu contraseña?</a></p>
       <p id="crearusr"><a href="/register">Crear Usuario</a></p>
