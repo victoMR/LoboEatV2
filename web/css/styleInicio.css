@@ -12,41 +12,81 @@
     }
 
     menu {
+        position: sticky;
         width: 100%;
-    }
-
-    .dropdown-menu {
-        position: static;
-        top: auto;
-        right: auto;
-        width: 100%;
-        height: auto;
-    }
-
-    .dropdown-menu li {
+        background-color: #ffffff;
+        z-index: 999;
+        margin-bottom: 10px;
+      }
+      
+      .menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px; /* Ancho del menú desplegable */
+        background-color: rgba(0, 0, 0, 0.875);
+        padding: 10px;
+        display: none;
+        z-index: 1;
+      }
+      
+      .dropdown-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .dropdown-menu li {
         margin-top: 10px;
-        margin-bottom: 20px;
-    }
-
-    .dropdown-menu a {
-        font-size: 25px;
-    }
-
-    .shopping-icon,
-    .hamburger-icon {
+        text-align: center;
+      }
+      
+      .dropdown-menu a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+      }
+      
+      .dropdown-menu a:hover {
+        color: #a9d18e;
+        font-weight: bolder;
+      }
+      
+      /* Estilos del ícono de menú hamburguesa */
+      .cart,
+      .shopping-icon,
+      .hamburger-icon {
+        position: relative;
         font-size: 40px;
-        /* Ajusta el tamaño del icono según necesites */
         color: #000000;
-        /* Ajusta el color del icono según tus preferencias */
         cursor: pointer;
         transition: transform 0.3s ease;
         border-radius: 4px;
-    }
-
-    .shopping-icon,
-    .hamburger-icon:hover {
+        text-transform: uppercase;
+      }
+      
+      .shopping-icon,
+      .hamburger-icon:hover {
         transform: scale(1.2);
-    }
+      }
+      
+      .cartAmount {
+        position: absolute;
+        top: -15px;
+        right: -10px;
+        font-size: 16px;
+        background-color: red;
+        color: white;
+        border-radius: 8px;
+        padding: 3px;
+      }
 
 
     .provider-container {
@@ -114,79 +154,69 @@ menu {
     position: sticky;
     width: 100%;
     background-color: #ffffff;
-    /* Cambia el color de fondo según tus necesidades */
     z-index: 999;
     margin-bottom: 10px;
-}
-
-.menu-container {
+  }
+  
+  .menu-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-}
-
-.dropdown-menu {
+  }
+  
+  .dropdown-menu {
     position: absolute;
     top: 100%;
     right: 0;
-    width: 400px;
-    /* Ancho del menú desplegable */
-    height: 700px;
-    /* Alto del menú desplegable */
+    width: 200px; /* Ancho del menú desplegable */
     background-color: rgba(0, 0, 0, 0.875);
     padding: 10px;
     display: none;
     z-index: 1;
-    /* Asegura que el menú se muestre por encima de otros elementos */
-}
-
-.dropdown-menu ul {
+  }
+  
+  .dropdown-menu ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
-
-.dropdown-menu li {
+  }
+  
+  .dropdown-menu li {
     margin-top: 10px;
-    margin-bottom: 80px;
     text-align: center;
-}
-
-.dropdown-menu a {
+  }
+  
+  .dropdown-menu a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 35px;
-    /* Tamaño de fuente de los enlaces */
+    font-size: 18px;
     font-family: Arial, sans-serif;
-    /* Establece la fuente deseada */
-}
-
-.dropdown-menu a:hover {
+  }
+  
+  .dropdown-menu a:hover {
     color: #a9d18e;
     font-weight: bolder;
-}
-
-.cart,
-.shopping-icon,
-.hamburger-icon {
+  }
+  
+  /* Estilos del ícono de menú hamburguesa */
+  .cart,
+  .shopping-icon,
+  .hamburger-icon {
     position: relative;
     font-size: 40px;
-    /* Ajusta el tamaño del icono según necesites */
     color: #000000;
-    /* Ajusta el color del icono según tus preferencias */
     cursor: pointer;
     transition: transform 0.3s ease;
     border-radius: 4px;
     text-transform: uppercase;
-}
-
-.shopping-icon,
-.hamburger-icon:hover {
+  }
+  
+  .shopping-icon,
+  .hamburger-icon:hover {
     transform: scale(1.2);
-}
-
-.cartAmount {
+  }
+  
+  .cartAmount {
     position: absolute;
     top: -15px;
     right: -10px;
@@ -195,5 +225,5 @@ menu {
     color: white;
     border-radius: 8px;
     padding: 3px;
-}
+  }
 

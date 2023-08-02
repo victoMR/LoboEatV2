@@ -1,16 +1,19 @@
 <%- include("templates/encabezado") %>
 <%- include("templates/googleanalitics")%>
 <%- include("templates/menulogin") %>
-<div class="position-relative" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
-  <picture class="position-absolute top-80 start-50 translate-middle" style="transform: translate(-50%, -50%); width: 40%; height: 40%;">
-    <img class="animate__animated animate__jello" src="../web/Img/404-page-error.png" alt="Cactus Png vectors by Lovepik.com" height="100%" width="100%">
+
+<div class="position-relative d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <picture class="position-absolute top-50 start-50 translate-middle" style="transform: translate(-40%, -40%);">
+    <img class="animate__animated animate__jello" src="https://img.freepik.com/free-vector/500-internal-server-error-concept-illustration_114360-1885.jpg?w=740&t=st=1690967430~exp=1690968030~hmac=5e66e11e2b70bd69a1467887a36cf75d5f16c31d2ab3a85044bdc6eb9dddfd28" alt="Cactus Png vectors by Lovepik.com" height="100%" width="100%">
   </picture>
 </div>
+
 <script>
   // Function to redirect to the main page
   function redirectToMainPage() {
     window.location.href = "./login";
   }
+
   // Wait for DOMContentLoaded event before redirecting
   document.addEventListener("DOMContentLoaded", function() {
     setTimeout(redirectToMainPage, 1500);

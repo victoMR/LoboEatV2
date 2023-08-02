@@ -1,31 +1,40 @@
+<!--Reuqerimientos-->
+<%- include("templates/encabezado")%>
 <%- include("templates/menulogin")%>
 <%- include("templates/googleanalitics")%>
+<!--CSS-->
 <link rel="stylesheet" href="../web/css/sylelogin.css">
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="container">
-  <div id="form">
-    <form action="/inicio" method="post"> <!-- Cambiado el método a "post" -->
-      <input type="text" name="login" id="login" placeholder="Expediente" autocomplete="on" autofocus maxlength="10">
-      <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="on" maxlength="20" minlength="8">
-      <button class="button_login" type="submit">Iniciar Sesión</button>
-      <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-      <p id="crearusr"><a href="/register">Crear Usuario</a></p>
-    </form>
-  </div>
-</div>
-<a href="https://time.is/San_Juan_del_Río" id="time_is_link" rel="nofollow" style="font-size:36px;color:#68a423"></a>
-<span id="_z159" style="font-size:36px;color:#68a423"></span>
-<script src="//widget.time.is/t.js"></script>
-<script>
-  time_is_widget.init({
-    _z159: {
-      id: "San_Juan_del_Río_z159",
-      time_format: "12hours:minutesAMPM"
-    }
-  });
-</script><br><br> 
-<%- include("templates/pie")%>
+
+    <div class="container">
+        <!--Inicia el formulario-->
+        <div id="form">
+            <form action="/inicio" method="post">
+                <!--Expediente-->
+                <input type="text" name="login" id="login" placeholder="Expediente" autocomplete="on" autofocus maxlength="10">
+                <!--Contraseña-->
+                <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="on" maxlength="20" minlength="8">
+                <!--Btn iniciar seccion -->
+                <button class="button_login" type="submit">Iniciar Sesión</button>
+                <!--Proximamente-->
+                <p><a href="#" >¿Olvidaste tu contraseña?</a></p>
+                <!--Se va a register.ejs-->
+                <p id="crearusr"><a href="/register" >Crear Usuario</a></p>
+            </form>
+        </div>
+    </div>
+    <!--Integracion de reloj de api externa -->
+    <a href="https://time.is/San_Juan_del_Río" id="time_is_link" rel="nofollow" style="font-size:36px;color:#68a423"></a>
+    <span id="_z159" style="font-size:36px;color:#68a423"></span>
+    <script src="//widget.time.is/t.js"></script>
+    <script>
+        time_is_widget.init({
+            _z159: {
+                id: "San_Juan_del_Río_z159",
+                time_format: "12hours:minutesAMPM"
+            }
+        });
+    </script><br><br> 
+    <!--Reuqerimientos--> 
+    <%- include("templates/pie")%>
+</head>
+</html>

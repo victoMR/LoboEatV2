@@ -4,19 +4,22 @@ const ua = require('universal-analytics');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 var ruta=require("express").Router();
+const dotenv = require('dotenv');
 
-const visitor = ua('G-WNRSFYTMQS');
+dotenv.config();
 
 // Ruta principal ----------------------------------------------------------------
 ruta.get("/", (req, res) => {
   try {
-    const visitor = ua('G-WNRSFYTMQS'); 
+    const visitor = ua(
+      process.env.CLAVE_GOOGLE_ANALYTICS
+    ); 
     // Track pageview for server-side
     visitor.pageview(req.originalUrl).send();
     res.render("login");
   } catch (error) {
     console.error("Error rendering login:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).redirect("/error");
   }
 });
 // Ruta de inicio se usa solamente cuando ya ingresamos seccion ----------------------------------------------------------------
@@ -46,7 +49,7 @@ ruta.post("/register", async (req, res) => {
     console.log("Registro de cliente insertado en la base de datos");
   } catch (error) {
     console.log("Error al insertar el registro de cliente en la base de datos:", error);
-    res.status(500).send("Error interno del servidor");
+    res.status(500).redirect("/error");
   }
 });
 // Ruta de inicio para poner las credenciales ----------------------------------------------------------------
@@ -92,7 +95,7 @@ ruta.get("/provVero", async (req, res) => {
     console.log("Acceso a vero");
   } catch (error) {
     console.log("Error al obtener los productos del proveedor Vero:", error);
-    res.status(500).send("Error interno del servidor");
+    res.status(500).redirect("/error");
   }
 });
 
@@ -109,7 +112,7 @@ ruta.get("/provAlmaguer", async (req, res) => {
     console.log("Acceso a provAlmaguer");
   } catch (error) {
     console.log("Error al obtener los productos del proveedor Almaguer:", error);
-    res.status(500).send("Error interno del servidor");
+    res.status(500).redirect("/error");
   }
 });
 

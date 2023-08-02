@@ -1,5 +1,22 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburgerIcon = document.querySelector('.hamburger-icon');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
 
-//inicia script del cuadro
+  // Mostrar el menú al hacer clic en el ícono
+  hamburgerIcon.addEventListener('click', function(event) {
+    event.stopPropagation(); // Evita que el evento se propague a otros elementos
+    dropdownMenu.classList.toggle('show');
+  });
+
+  // Ocultar el menú al hacer clic fuera del ícono
+  document.addEventListener('click', function(event) {
+    if (!event.target.matches('.hamburger-icon') && !event.target.closest('.dropdown-menu')) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
+});
+
+
 const gridItems = document.querySelectorAll(".grid-item");
 
 gridItems.forEach(function(item) {
@@ -48,14 +65,13 @@ closeButton.addEventListener("click", function() {
 
 const popupButton = document.getElementById("popup-button");
 
-let cart = [];
+let increment = (popupButton) => {
+  console.log(popupButton);
+};
 
-// Función para agregar un producto al carrito
-function addToCart(product) {
-  cart.push(product);
-}
+let decrement = () => {
+  console.log("Quitar producto");
+};
+let update = () => {};
 
-// Función para mostrar los productos en el carrito
-function displayCart() {
-  // Código para mostrar los productos del carrito en la página
-}
+

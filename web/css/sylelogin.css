@@ -1,154 +1,146 @@
 /* Estilos para dispositivos móviles */
 @media (max-width: 767px) {
-    .loader {
-      display: none !important;
-    }
-  
-    .background {
-      height: 50%;
-    }
-  
-    .logo {
-      height: 5%;
-    }
-  
-    menu {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background-color: #ffffff;
-      /* Cambia el color de fondo según tus necesidades */
-      z-index: 999;
-      margin-bottom: 10px;
-    }
-  
-    .container {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 20px 10px;
-      border: 1px solid #000000;
-      border-radius: 15px;
-      margin: 20px;
-    }
-  
-    #form {
-      padding-top: 25px;
-      width: 100%;
-      height: auto;
-      font-size: 20px;
-    }
-  
-    #form input[type="text"],
-    #password {
-      width: 90%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      font-size: 20px;
-    }
-  
-    #form input[type="password"]:focus,
-    #form input[type="text"]:focus {
-      outline: none;
-      border-color: #68a423;
-      /* Cambia el color del borde cuando está enfocado */
-    }
-  
-    .button_login {
-      width: 80%;
-      margin-top: 20px;
-      font-size: 18px;
-    }
-  
-    #form p {
-      padding-top: 20px;
-      margin-bottom: 10px;
-      font-size: 16px;
-      text-align: center;
-    }
-  
-    #_z159 {
-      margin-left: 0;
-    }
-  
-    .provider-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 10px;
-    }
-  
-    .provider {
-      display: flex;
-      position: relative;
-      overflow: hidden;
-      background-color: #ffffff !important;
-    }
-  
-    .provider-image {
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-      border-radius: 55px;
-      z-index: 2;
-      background-color: #000000;
-      margin-left: 0;
-    }
-  
-    .provider:hover .provider-image {
-      opacity: 0.5;
-      border-radius: 55px;
-    }
-  
-    .provider:hover::after {
-      content: '';
-      border-radius: 55px;
-      position: absolute;
-      bottom: 1px;
-      left: 50%;
-      transform: translateX(-48%);
-      background-color: rgb(0, 0, 0);
-      color: #000000;
-      padding: 0px;
-      font-size: 15%;
-      transition: opacity 0.3s ease;
-      opacity: 1;
-    }
-  
-    .provider-name {
-      position: absolute;
-      top: 50%;
-      border-radius: 25px;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgb(0, 0, 0);
-      color: #010101;
-      padding: 10px;
-      font-size: 15%;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      z-index: 2;
-    }
-  
-    .provider:hover .provider-name {
-      opacity: 0.6;
-      font-size: 30px;
-      text-align: center;
-      background-color: #000000;
-      color: aliceblue;
-      filter: brightness(10);
-      filter: hue-rotate(10);
-    }
-  
-    .provider a {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+  .loader {
+    display: none !important;
   }
-  
+
+  .background {
+    height: 50%;
+  }
+
+  .logo {
+    height: 5%;
+  }
+
+  menu {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    /* Cambia el color de fondo según tus necesidades */
+    z-index: 999;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 20px 10px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+
+  }
+  /* Estilos específicos para el formulario en pantallas pequeñas */
+  #form {
+    width: 90%; /* Reducir el ancho para que se ajuste mejor en pantallas pequeñas */
+    padding-top: 15px; /* Reducir el espacio superior para que se vea más compacto */
+    font-size: 18px; /* Reducir el tamaño de fuente para pantallas pequeñas */
+  }
+
+  #form input[type="text"],
+  #form input[type="password"] {
+    width: 100%; /* Ajustar el ancho de los campos de texto a la pantalla */
+    font-size: 16px; /* Reducir el tamaño de fuente para los campos de texto */
+  }
+
+  .button_login {
+    width: 100%; /* Ajustar el ancho del botón a la pantalla */
+    font-size: 16px; /* Reducir el tamaño de fuente del botón */
+    margin-top: 15px; /* Reducir el espacio superior del botón */
+  }
+
+  #form p {
+    padding-top: 20px; /* Ajustar el espacio superior del párrafo */
+    font-size: 14px; /* Reducir el tamaño de fuente del párrafo */
+  }
+
+  #_z159 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 60px;
+  }
+
+  .provider-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  .provider {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff !important;
+  }
+
+  .provider-image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    border-radius: 55px;
+    z-index: 2;
+    background-color: #000000;
+  }
+
+  .provider:hover .provider-image {
+    opacity: 0.5;
+    border-radius: 55px;
+  }
+
+  .provider:hover::after {
+    content: '';
+    border-radius: 55px;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-48%);
+    background-color: rgb(0, 0, 0);
+    color: #000000;
+    padding: 0px;
+    font-size: 15%;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+  }
+
+  .provider-name {
+    position: absolute;
+    top: 50%;
+    border-radius: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 0, 0);
+    color: #010101;
+    padding: 10px;
+    font-size: 15%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 2;
+  }
+
+  .provider:hover .provider-name {
+    opacity: 0.6;
+    font-size: 30px;
+    text-align: center;
+    background-color: #000000;
+    color: aliceblue;
+    filter: brightness(10);
+    filter: hue-rotate(10);
+  }
+
+  .provider a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
   @media (min-width: 768px) and (max-width: 1925px) {
     .loader {
       display: flex;

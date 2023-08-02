@@ -85,35 +85,31 @@
 
 }
 
+/* Estilos del menú hamburguesa */
 menu {
   position: sticky;
   width: 100%;
   background-color: #ffffff;
-  /* Cambia el color de fondo según tus necesidades */
   z-index: 999;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .menu-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .dropdown-menu {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 400px;
-  /* Ancho del menú desplegable */
-  height: 700px;
-  /* Alto del menú desplegable */
-  background-color: rgba(0, 0, 0, 0.875);
+  width: 300px; /* Ancho del menú desplegable */
+  height: 628px;
+  background-color: rgba(0, 0, 0, 0.947);
   padding: 10px;
   display: none;
   z-index: 1;
-  /* Asegura que el menú se muestre por encima de otros elementos */
 }
 
 .dropdown-menu ul {
@@ -123,18 +119,15 @@ menu {
 }
 
 .dropdown-menu li {
-  margin-top: 40px;
-  margin-bottom: 80px;
+  margin-top: 65px;
   text-align: center;
 }
 
 .dropdown-menu a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 35px;
-  /* Tamaño de fuente de los enlaces */
+  font-size: 28px;
   font-family: Arial, sans-serif;
-  /* Establece la fuente deseada */
 }
 
 .dropdown-menu a:hover {
@@ -142,14 +135,16 @@ menu {
   font-weight: bolder;
 }
 
+/* Estilos del ícono de menú hamburguesa */
+.hamburger-icon{
+  margin-right: 20px;
+}
 .cart,
 .shopping-icon,
 .hamburger-icon {
   position: relative;
   font-size: 40px;
-  /* Ajusta el tamaño del icono según necesites */
   color: #000000;
-  /* Ajusta el color del icono según tus preferencias */
   cursor: pointer;
   transition: transform 0.3s ease;
   border-radius: 4px;
@@ -171,6 +166,7 @@ menu {
   border-radius: 8px;
   padding: 3px;
 }
+
 
 .grid-container {
   display: grid;

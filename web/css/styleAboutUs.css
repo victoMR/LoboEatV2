@@ -42,79 +42,86 @@
 }
 
 menu {
-    position: sticky;
-    top: 0;
-    width: 97.2%;
-    background-color: #ffffff;
-    /* Cambia el color de fondo según tus necesidades */
-    z-index: 999;
-    /* Asegura que el menú se muestre por encima de otros elementos */
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+  position: sticky;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 999;
+  margin-bottom: 50px;
 }
 
 .menu-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 500px;
-    /* Ancho del menú desplegable */
-    height: 800px;
-    /* Alto del menú desplegable */
-    background-color: rgba(0, 0, 0, 0.905);
-    padding: 20px;
-    display: none;
-    z-index: 1;
-    /* Asegura que el menú se muestre por encima de otros elementos */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px; /* Ancho del menú desplegable */
+  height: 628px;
+  background-color: rgba(0, 0, 0, 0.947);
+  padding: 10px;
+  display: none;
+  z-index: 1;
 }
 
 .dropdown-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .dropdown-menu li {
-    margin-top: 40px;
-    margin-bottom: 80px;
-    text-align: center;
+  margin-top: 65px;
+  text-align: center;
 }
 
 .dropdown-menu a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 35px;
-    /* Tamaño de fuente de los enlaces */
-    font-family: Arial, sans-serif;
-    /* Establece la fuente deseada */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 28px;
+  font-family: Arial, sans-serif;
 }
-
-.dropdown-menu a:hover {
+  
+  .dropdown-menu a:hover {
     color: #a9d18e;
     font-weight: bolder;
-}
+  }
+  
+  /* Estilos del ícono de menú hamburguesa */
+  .hamburger-icon{
+    margin-right: 20px;
+  }
 
-.shopping-icon,
-.hamburger-icon {
+  .cart,
+  .shopping-icon,
+  .hamburger-icon {
+    position: relative;
     font-size: 40px;
-    /* Ajusta el tamaño del icono según necesites */
     color: #000000;
-    /* Ajusta el color del icono según tus preferencias */
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-
-.shopping-icon,
-.hamburger-icon:hover {
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  
+  .shopping-icon,
+  .hamburger-icon:hover {
     transform: scale(1.2);
-}
+  }
+  
+  .cartAmount {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 3px;
+  }
 
 #title {
     padding-top: 60px;
