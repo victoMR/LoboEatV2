@@ -151,47 +151,48 @@
 }
 
 menu {
-    position: sticky;
-    width: 100%;
-    background-color: #ffffff;
-    z-index: 999;
-    margin-bottom: 10px;
-  }
-  
-  .menu-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 200px; /* Ancho del menú desplegable */
-    background-color: rgba(0, 0, 0, 0.875);
-    padding: 10px;
-    display: none;
-    z-index: 1;
-  }
-  
-  .dropdown-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .dropdown-menu li {
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .dropdown-menu a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-  }
+  position: sticky;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 999;
+  margin-bottom: 50px;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px; /* Ancho del menú desplegable */
+  height: 628px;
+  background-color: rgba(0, 0, 0, 0.947);
+  padding: 10px;
+  display: none;
+  z-index: 1;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  margin-top: 65px;
+  text-align: center;
+}
+
+.dropdown-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 28px;
+  font-family: Arial, sans-serif;
+}
   
   .dropdown-menu a:hover {
     color: #a9d18e;
@@ -199,6 +200,10 @@ menu {
   }
   
   /* Estilos del ícono de menú hamburguesa */
+  .hamburger-icon{
+    margin-right: 20px;
+  }
+
   .cart,
   .shopping-icon,
   .hamburger-icon {

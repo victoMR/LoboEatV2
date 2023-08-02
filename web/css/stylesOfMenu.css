@@ -129,44 +129,44 @@ menu {
   font-size: 28px;
   font-family: Arial, sans-serif;
 }
+  
+  .dropdown-menu a:hover {
+    color: #a9d18e;
+    font-weight: bolder;
+  }
+  
+  /* Estilos del ícono de menú hamburguesa */
+  .hamburger-icon{
+    margin-right: 20px;
+  }
 
-.dropdown-menu a:hover {
-  color: #a9d18e;
-  font-weight: bolder;
-}
-
-/* Estilos del ícono de menú hamburguesa */
-.hamburger-icon{
-  margin-right: 20px;
-}
-.cart,
-.shopping-icon,
-.hamburger-icon {
-  position: relative;
-  font-size: 40px;
-  color: #000000;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.shopping-icon,
-.hamburger-icon:hover {
-  transform: scale(1.2);
-}
-
-.cartAmount {
-  position: absolute;
-  top: -15px;
-  right: -10px;
-  font-size: 16px;
-  background-color: red;
-  color: white;
-  border-radius: 8px;
-  padding: 3px;
-}
-
+  .cart,
+  .shopping-icon,
+  .hamburger-icon {
+    position: relative;
+    font-size: 40px;
+    color: #000000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  
+  .shopping-icon,
+  .hamburger-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .cartAmount {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 3px;
+  }
 
 .grid-container {
   display: grid;
