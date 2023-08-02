@@ -1,33 +1,22 @@
 // Requerimientos de librerias de npm ----------------------------------------------------------------
 const { PrismaClient } = require('@prisma/client');
-const { Analytics } = require('@vercel/analytics/react');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
-var ruta = require("express").Router();
+var ruta=require("express").Router();
 
 // Ruta principal ----------------------------------------------------------------
-ruta.get("/", (req, res) => {
-  try {
-    Analytics.pageview(req.url).then(() => { // Corrected variable name
-      res.render("login");
-    });
-  } catch (error) {
-    console.error("Error rendering login:", error);
-    res.status(500).send("Internal Server Error");
-  }
+ruta.get("/",(req,res) => {
+    res.render("login");
 });
-
-// Ruta de inicio se usa solamente cuando ya ingresamos sección ----------------------------------------------------------------
+// Ruta de inicio se usa solamente cuando ya ingresamos seccion ----------------------------------------------------------------
 ruta.get("/inicio",(req,res) => {
     res.render("inicio");
 });
-
-// Ruta de registrar usuario ----------------------------------------------------------------
+// Ruta de reegistrar usuario ----------------------------------------------------------------
 ruta.get("/register", async(req, res) => {
   res.render("register"); 
 });
-
-// Ruta de inserción de nuevo usuario a la base ----------------------------------------------------------------
+// Ruta de incercion de nuevo usuario a la base  ----------------------------------------------------------------
 ruta.post("/register", async (req, res) => {
   const { username, name, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10); // Encripta la contraseña utilizando bcrypt
@@ -49,7 +38,6 @@ ruta.post("/register", async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 });
-
 // Ruta de inicio para poner las credenciales ----------------------------------------------------------------
 ruta.post("/inicio", async (req, res) => {
   const { login, password } = req.body;
@@ -81,8 +69,7 @@ ruta.post("/inicio", async (req, res) => {
     res.redirect("/error")
   }
 });
-
-// Ruta del proveedor Vero ----------------------------------------------------------------  
+// Ruta del proivedor Vero ----------------------------------------------------------------  
 ruta.get("/provVero", async (req, res) => {
   try {
     const productos = await prisma.producto.findMany({
@@ -98,7 +85,8 @@ ruta.get("/provVero", async (req, res) => {
   }
 });
 
-// Ruta del proveedor Almaguer ----------------------------------------------------------------  
+
+// Ruta del proivedor Almaguer ----------------------------------------------------------------  
 ruta.get("/provAlmaguer", async (req, res) => {
   try {
     const productos = await prisma.producto.findMany({
@@ -118,17 +106,14 @@ ruta.get("/provAlmaguer", async (req, res) => {
 ruta.get("/aboutus",(req,res) => {
     res.render("aboutus");
 });
-
-// Ruta de inicio de sesión ----------------------------------------------------------------  
+// Ruta de inico de seccion ----------------------------------------------------------------  
 ruta.get("/login",(req,res) => {
   res.render("login");
 });
-
 // Ruta de carrito de compras ----------------------------------------------------------------  
 ruta.get("/shopingCart",(req,res) => {
-  res.render('shopingCart');
+  res.render('shopingCart')
 });
-
 ruta.get("/error",(req,res) => {
   res.render("error");
 });
