@@ -31,6 +31,7 @@
     "mx": "^1.0.0-0",
     "next": "^13.4.10",
     "nodemon": "^2.0.22",
-    "prisma": "^3.9.1"
+    "prisma": "^3.9.1",
+    "universal-analytics": "^0.5.3"
   }
 }

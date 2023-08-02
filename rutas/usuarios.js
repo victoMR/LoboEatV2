@@ -1,12 +1,22 @@
 // Requerimientos de librerias de npm ----------------------------------------------------------------
 const { PrismaClient } = require('@prisma/client');
+const ua = require('universal-analytics');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 var ruta=require("express").Router();
 
+const visitor = ua('UA-280445440-1'); 
+
 // Ruta principal ----------------------------------------------------------------
-ruta.get("/",(req,res) => {
+ruta.get("/", (req, res) => {
+  try {
+    // Track pageview for server-side
+    visitor.pageview(req.originalUrl).send();
     res.render("login");
+  } catch (error) {
+    console.error("Error rendering login:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 // Ruta de inicio se usa solamente cuando ya ingresamos seccion ----------------------------------------------------------------
 ruta.get("/inicio",(req,res) => {
