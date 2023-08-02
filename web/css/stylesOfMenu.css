@@ -1,16 +1,6 @@
 @media (max-width: 1023px) {
   /* Agrega una imagen de fondo */
 
-  /* Ajusta el ancho del menú desplegable */
-  .dropdown-menu {
-    width: 100%;
-  }
-
-  /* Ajusta el tamaño de fuente para dispositivos móviles */
-  .dropdown-menu a {
-    font-size: 30px;
-  }
-
   .grid-container {
     /* Ajusta el número de columnas y el espacio entre los productos */
     grid-template-columns: repeat(2, 1fr);
