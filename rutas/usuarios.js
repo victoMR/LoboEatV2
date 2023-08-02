@@ -5,12 +5,12 @@ const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 var ruta=require("express").Router();
 
-const visitor = ua('G-QZ2PF6TMR0');
+const visitor = ua('G-WNRSFYTMQS');
 
 // Ruta principal ----------------------------------------------------------------
 ruta.get("/", (req, res) => {
   try {
-    const visitor = ua('G-QZ2PF6TMR0'); 
+    const visitor = ua('G-WNRSFYTMQS'); 
     // Track pageview for server-side
     visitor.pageview(req.originalUrl).send();
     res.render("login");
