@@ -4,14 +4,14 @@
   "description": "App web de pedir comida en linea para la cafeteria de la UTSJR",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index",
+    "start": "node index",
     "postinstall": "prisma generate",
-    "build": "prisma generate && start",
+    "build": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["didi food", "uber eats"],
+  "author": "Rangel Mejia Victor Manuel",
+  "license": "GNU V3",
   "dependencies": {
     "@prisma/client": "^3.9.1",
     "animate.css": "^4.1.1",
