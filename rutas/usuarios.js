@@ -8,7 +8,7 @@ var ruta = require("express").Router();
 // Ruta principal ----------------------------------------------------------------
 ruta.get("/", (req, res) => {
   try {
-    analytics.pageview(req.url).then(() => {
+    Analytics.pageview(req.url).then(() => { // Corrected variable name
       res.render("login");
     });
   } catch (error) {
