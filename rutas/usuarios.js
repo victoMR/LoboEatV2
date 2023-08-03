@@ -116,6 +116,23 @@ ruta.get("/provAlmaguer", async (req, res) => {
   }
 });
 
+// Ruta de inicio de sesión para proveedores
+ruta.get("/loginpro", (req, res) => {
+  res.render("loginpro");
+});
+
+// Ruta de incercion de nuevo proveedor a la base
+ruta.post("/loginpro", async (req, res) => {
+  // Lógica para validar el inicio de sesión del proveedor
+  // Aquí debes verificar las credenciales del proveedor y realizar la autenticación
+  // Si las credenciales son válidas, redirigir al panel de control del proveedor, por ejemplo:
+  // res.render("panelControlProveedor");
+
+  // Como ejemplo, aquí simplemente redireccionamos al inicio de sesión normal
+  res.redirect("/login");
+});
+
+
 // Ruta sobre nosotros ----------------------------------------------------------------  
 ruta.get("/aboutus",(req,res) => {
     res.render("aboutus");

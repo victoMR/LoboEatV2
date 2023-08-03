@@ -17,7 +17,6 @@
     top: 0;
     width: 100%;
     background-color: #ffffff;
-    /* Cambia el color de fondo según tus necesidades */
     z-index: 999;
     margin-bottom: 30px;
   }
@@ -31,30 +30,50 @@
     padding: 20px 10px;
     border: 1px solid #000000;
     border-radius: 15px;
-
   }
+
   /* Estilos específicos para el formulario en pantallas pequeñas */
   #form {
-    width: 90%; /* Reducir el ancho para que se ajuste mejor en pantallas pequeñas */
-    padding-top: 15px; /* Reducir el espacio superior para que se vea más compacto */
-    font-size: 18px; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    width: 80%;
+    padding-top: 15px;
+    font-size: 18px;
+    margin-right: 20px;
+    padding-right: 20px;
   }
 
   #form input[type="text"],
   #form input[type="password"] {
-    width: 100%; /* Ajustar el ancho de los campos de texto a la pantalla */
-    font-size: 16px; /* Reducir el tamaño de fuente para los campos de texto */
+    width: 100%;
+    font-size: 16px;
   }
 
   .button_login {
-    width: 100%; /* Ajustar el ancho del botón a la pantalla */
-    font-size: 16px; /* Reducir el tamaño de fuente del botón */
-    margin-top: 15px; /* Reducir el espacio superior del botón */
+    background-color: #68a423;
+    color: #ffffff;
+    font-size: 17px;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: #68a423;
+  }
+
+  .button_login:hover {
+    background-color: #d28125;
   }
 
   #form p {
-    padding-top: 20px; /* Ajustar el espacio superior del párrafo */
-    font-size: 14px; /* Reducir el tamaño de fuente del párrafo */
+    padding-top: 20px;
+    font-size: 14px;
   }
 
   #_z159 {
@@ -141,127 +160,89 @@
   }
 }
 
-  @media (min-width: 768px) and (max-width: 1925px) {
-    .loader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      background-color: #d17b41;
-    }
-  
-    .background {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background-image: linear-gradient(to bottom, #d17b41 50%, #a9d18e 100%);
-      background-color: #a9d18e;
-      opacity: 0.8;
-      z-index: -1;
-    }
-  
-    .logo {
-      width: 10px;
-      height: 10%;
-      z-index: 1;
-      mix-blend-mode: multiply;
-    }
-  
-    menu {
-      position: sticky;
-      top: 0;
-      width: 97.2%;
-      background-color: #ffffff;
-      /* Cambia el color de fondo según tus necesidades */
-      border-radius: 1px;
-      z-index: 999;
-      /* Asegura que el menú se muestre por encima de otros elementos */
-      padding-bottom: 5px;
-      margin-bottom: 50px;
-    }
-  
-    .container {
-      max-width: 768px;
-      margin: 0 auto;
-    }
-  
-    #form {
-      display: flex;
-      flex-direction: column;
-      /* Cambia la dirección del flexbox a columna */
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      width: 750px;
-      /* Reduce el ancho para que se vea más compacto */
-      height: 420px;
-      /* Reduce la altura para que se vea más compacto */
-      border: 1px solid rgb(0, 0, 0);
-      border-radius: 15px;
-      background-color: #f9f9f9;
-  
-      /* Agrega un espacio interno */
-      padding-top: 25px;
-      font-size: 25px;
-    }
-  
-    #form input[type="text"] {
-      width: 90%;
-      padding-top: 10px;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      font-size: 25px;
-    }
-  
-    #password {
-      width: 90%;
-      padding-top: 10px;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      font-size: 25px;
-    }
-  
-    #form input[type="password"]:focus {
-      outline: none;
-      border-color: #68a423;
-      /* Cambia el color del borde cuando está enfocado */
-    }
-  
-    #form input[type="password"]:focus {
-      width: 90%;
-      padding-top: 10px;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      font-size: 25px;
-    }
+/* Estilos para tablets y pantallas de mayor tamaño */
+@media (min-width: 768px) and (max-width: 1925px) {
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #d17b41;
   }
-  
+
+  .background {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(to bottom, #d17b41 50%, #a9d18e 100%);
+    background-color: #a9d18e;
+    opacity: 0.8;
+    z-index: -1;
+  }
+
+  .logo {
+    width: 10px;
+    height: 10%;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  menu {
+    position: sticky;
+    top: 0;
+    width: 97.2%;
+    background-color: #ffffff;
+    border-radius: 1px;
+    z-index: 999;
+    padding-bottom: 5px;
+    margin-bottom: 50px;
+  }
+
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 780px;
+    height: 460px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    padding-top: 25px;
+    font-size: 25px;
+  }
+
+  #form input[type="text"],
+  #password {
+    width: 90%;
+    padding-top: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 25px;
+  }
+
+  #form input[type="password"]:focus,
   #form input[type="text"]:focus {
     outline: none;
     border-color: #68a423;
-    /* Cambia el color del borde cuando está enfocado */
   }
-  
-  #form input[type="password"]:focus {
-    outline: none;
-    border-color: #68a423;
-    /* Cambia el color del borde cuando está enfocado */
-  }
-  
+
   .button_login {
     background-color: #68a423;
     color: #ffffff;
@@ -271,22 +252,20 @@
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
-    /* Agrega un margen superior para separar el botón del resto del formulario */
     align-self: center;
     margin-left: auto;
     margin-right: auto;
     display: block;
   }
-  
+
   a {
     text-decoration: none;
   }
-  
+
   .button_login:hover {
     background-color: #d28125;
-    /* Cambia el color de fondo cuando se pasa el mouse */
   }
-  
+
   #form p {
     padding-top: 40px;
     margin-bottom: 10px;
@@ -298,47 +277,45 @@
     display: block;
     text-align: center;
   }
-  
+
   #form p a {
     color: #68a423;
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  
+
   #form p a:hover {
     text-decoration: underline;
-    /* Subraya el enlace cuando se pasa el mouse */
     color: #d28125;
   }
-  
+
   #_z159 {
     margin-left: 70px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  
+
   .footer {
     background-color: #f9f9f9;
-    /* Fondo gris tenue */
     padding: 20px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
   }
-  
+
   .footer a {
     margin: 0 10px;
     color: #333;
     text-decoration: none;
   }
-  
+
   .footer a:hover {
     color: #555;
   }
-  
+
   .footer i {
     font-size: 18px;
   }
-  
+
   .footer .utsjr-button {
     width: 120px;
     height: 15px;
@@ -352,25 +329,24 @@
     background-size: cover;
     background-position: center center;
   }
-  
+
   .footer .utsjr-button:hover {
     background-color: #23527c;
   }
-  
+
   .provider-container {
     display: grid;
     grid-template-columns: repeat(2, 0.5fr);
     grid-gap: 20px;
   }
-  
+
   .provider {
     display: flex;
-    /* Agregado: hace que los elementos internos se ajusten correctamente */
     position: relative;
     overflow: hidden;
     background-color: #ffffff !important;
   }
-  
+
   .provider-image {
     margin-left: 65px;
     width: 80%;
@@ -381,12 +357,12 @@
     z-index: 2;
     background-color: #000000;
   }
-  
+
   .provider:hover .provider-image {
     opacity: 0.5;
     border-radius: 55px;
   }
-  
+
   .provider:hover::after {
     content: '';
     border-radius: 55px;
@@ -401,7 +377,7 @@
     transition: opacity 0.3s ease;
     opacity: 1;
   }
-  
+
   .provider-name {
     position: absolute;
     top: 50%;
@@ -417,7 +393,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 2;
   }
-  
+
   .provider:hover .provider-name {
     opacity: 0.6;
     font-size: 60px;
@@ -427,15 +403,14 @@
     filter: brightness(10);
     filter: hue-rotate(10);
   }
-  
+
   .provider a {
     display: block;
     width: 100%;
     height: 100%;
   }
-  
+
   .provider-image {
     color: #d17b41;
   }
-  
-  
+}
