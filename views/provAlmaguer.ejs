@@ -3,7 +3,6 @@
 <%- include("templates/googleanalitics") %>
 
 <script src="/web/js/almaguer.js" defer></script>
-<script src="/web/js/carrito.js"></script>
 
 <link rel="stylesheet" href="/web/css/stylesOfMenu.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -12,16 +11,26 @@
 <!--Menu-->
 <menu>
   <div class="menu-container">
-    <div class="cart">
-      <a href="/shopingCart" style="text-decoration: none;">
-        <span class="shopping-icon">
-          <i class="fas fa-shopping-cart"></i>
-          <div class="cartAmount">0</div>
-        </span>
-      </a>
-    </div>
+      <div class="cart-container">
+        <a href="/verCarrito">
+          <div class="cart-icon">
+            <i class="bi bi-cart"></i>
+            <span class="cart-counter"><%= carrito.length %></span>
+          </div>
+        </a>
+      </div>
+      <script>
+        // Obtiene el contador y el valor actual
+        const cartCounter = document.querySelector(".cart-counter");
+        const currentCount = parseInt(cartCounter.innerHTML);
+      
+      </script>
+    
+
     <img id="logo" src="/web/Img/Grupo 1@2x.png" alt="Logo" height="70px">
+
     <span class="hamburger-icon"><i class="fas fa-bars"></i></span>
+
     <div class="dropdown-menu">
       <ul>
         <li><a href="/inicio">Inicio</a></li>
@@ -33,36 +42,49 @@
     </div>
   </div>
 </menu>
-<!--Fin Menu-->
-<!-- Lista de productos -->
-<div class="grid-container animate__animated animate__backInDown">
-  <% productos.forEach(producto => { %>
-    <% console.log(producto); %>
-    <!--Esto viene de la base de datos en planet scale -->
-    <span id="id<%= producto.id_product %>" class="hidden"><%= producto.id_product %></span>
 
-    <div class="grid-item">
+<!-- Lista de productos -->
+<div id="addToCartButtons" class="grid-container">
+  <% let i = 1; %>
+  <% items.forEach((producto) => { %>
+    <% console.log(producto); %>
+    <span id="id<%= i %>" class="hidden"><%= producto.id_product %></span>
+    <div class="grid-item animate__animated animate__rubberBand">
       <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" alt="Descripción de la imagen" />
       <div class="overlay">
-        <span id="titulo<%= producto.id_product %>"><%= producto.name_product %> $<%= producto.precio_product %></span>
-        <span class="text" id="description<%= producto.id_product %>" name="descrip_product"><%= producto.descrip_product %></span>
-        <span class="text" id="ingredients<%= producto.id_product %>"><%= producto.ingredientes_product %></span>
+        <span id="titulo<%= i %>"><%= producto.name_product %> $<%= producto.precio_product %></span>
+        <span class="text" id="description<%= i %>" name="descrip_product"><%= producto.descrip_product %></span>
+        <span class="text" id="ingredients<%= i %>"><%= producto.ingredientes_product %></span>
       </div>
       <!--  en imagen debemos poner este cual conecta a la base de datos  <%= producto.imagen %> -->
     </div>
+    <% i++; %>
   <% }) %>
 </div>
+
+<!-- Add to cart buttons -->
+<div class="grid-container">
+  <% items.forEach((producto) => { %>
+    <% if (producto.id_product === 1) { %>
+      <div class="grid-item animate__animated animate__rubberBand">
+        <a href="/agregar/<%= producto.id_product %>" class="btn btn-primary col-5 rounded-4  "><i class="bi bi-basket3-fill"></i></a>
+      </div>
+    <% } else if (producto.id_product === 2) { %>
+      <div class="grid-item animate__animated animate__rubberBand">
+        <a href="/agregar/<%= producto.id_product %>" class="btn btn-primary col-5 rounded-4  "><i class="bi bi-basket3-fill"></i></a>
+    <% } %>
+  <% }) %>
+</div>
+
 
 <!-- PopUp -->
 <div class="containerpopup"></div>
 <div class="popup" id="popup">
   <span class="close-button">&times;</span>
-  <h2 id="popup-title" class="popup-title top-50"></h2>
-  <div id="popup-image" class="popup-image"></div>
-  <div id="popup-description" class="popup-description text-center fs-5 m-3"></div>
+  <h2 id="popup-title" class="popup-title m-4"></h2>
+  <div id="popup-image" class="popup-image m-2"></div>
+  <div id="popup-description" class="popup-description m-1 text-md-center fs-5"></div>
   <ul id="popup-ingredients" class="popup-ingredients"></ul>
-  <!-- Botón "Agregar al carrito" dentro del pop-up -->
-  <button class="popup-button" onclick="addToCart(producto)">Agregar al carrito</button>
 </div>
 </body>
 </html>

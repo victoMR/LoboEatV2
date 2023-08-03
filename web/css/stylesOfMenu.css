@@ -130,8 +130,6 @@ menu {
     margin-right: 20px;
   }
 
-  .cart,
-  .shopping-icon,
   .hamburger-icon {
     position: relative;
     font-size: 40px;
@@ -147,16 +145,27 @@ menu {
     transform: scale(1.2);
   }
   
-  .cartAmount {
-    position: absolute;
-    top: -15px;
-    right: -10px;
-    font-size: 16px;
-    background-color: red;
-    color: white;
-    border-radius: 8px;
-    padding: 3px;
-  }
+  /* Add this style to make the cart icon black */
+.cart-icon i {
+  color: black;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 40px;
+}
+
+/* Add this style to make the cart counter a floating red bubble with white letters */
+.cart-counter {
+  position: absolute;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+}
+
 
 .grid-container {
   display: grid;

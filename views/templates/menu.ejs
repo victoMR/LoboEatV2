@@ -3,15 +3,14 @@
 <link rel="stylesheet" href="/web/css/styleInicio.css">
 <menu>
   <div class="menu-container">
-    <div class="cart">
-      <a href="/shopingCart" style="text-decoration: none;">
-        <span class="shopping-icon">
-          <i class="fas fa-shopping-cart"></i>
-          <div class="cartAmount">0</div>
-        </span>
+    <div class="cart-container">
+      <a href="/verCarrito">
+        <div class="cart-icon">
+          <i class="bi bi-cart"></i>
+          <span class="cart-counter"><%= carrito.length %></span>
+        </div>
       </a>
     </div>
-
     <img id="logo" src="/web/Img/Grupo 1@2x.png" alt="Logo" height="70px">
 
     <span class="hamburger-icon"><i class="fas fa-bars"></i></span>
@@ -27,6 +26,12 @@
     </div>
   </div>
 </menu>
+<script>
+  // Obtiene el contador y el valor actual
+  const cartCounter = document.querySelector(".cart-counter");
+  const currentCount = parseInt(cartCounter.innerHTML);
+
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
   const hamburgerIcon = document.querySelector('.hamburger-icon');

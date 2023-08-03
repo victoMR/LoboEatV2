@@ -64,13 +64,50 @@ closeButton.addEventListener("click", function() {
 
 var popupButton = document.getElementById("popup-button");
 
+// Este código asume que estás utilizando jQuery para realizar la solicitud AJAX
 
-let increment = (popupButton) =>{
-  console.log(popupButton);
-};
+$(document).ready(function () {
+  // Hacer una solicitud AJAX al servidor para obtener la lista de productos
+  $.ajax({
+    url: '/api/productos', // Cambia la URL a la ruta que devuelve la lista de productos desde el servidor
+    method: 'GET',
+    dataType: 'json',
+    success: function (data) {
+      // Una vez que se recibe la lista de productos del servidor, generar los botones de "Add to cart"
+      generateAddToCartButtons(data);
+    },
+    error: function (error) {
+      console.error('Error al obtener la lista de productos:', error);
+    }
+  });
+});
 
-let decrement = () =>{
-  console.log("Quitar producto");
-};
-let update = () =>{};
+function generateAddToCartButtons(items) {
+  // Obtener el contenedor de los botones de "Add to cart"
+  const addToCartContainer = document.querySelector('.grid-container');
 
+  // Limpiar el contenido del contenedor (por si ya había botones generados previamente)
+  addToCartContainer.innerHTML = '';
+
+  // Generar los botones de "Add to cart" dinámicamente para cada producto
+  items.forEach((producto) => {
+    const addButton = document.createElement('div');
+    addButton.classList.add('grid-item', 'animate__animated', 'animate__rubberBand');
+
+    const link = document.createElement('a');
+    link.href = `/agregar/${producto.id_product}`;
+    link.classList.add('btn', 'btn-primary', 'col-5', 'rounded-4');
+
+    const icon = document.createElement('i');
+    icon.classList.add('bi', 'bi-basket3-fill');
+
+    link.appendChild(icon);
+    addButton.appendChild(link);
+
+    // Obtener el último elemento en la lista de productos (el contenedor del último producto)
+    const lastProductContainer = addToCartContainer.lastElementChild;
+
+    // Insertar el botón en el mismo nivel que el último producto
+    addToCartContainer.insertBefore(addButton, lastProductContainer.nextElementSibling);
+  });
+}

@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 var ruta=require("express").Router();
 const dotenv = require('dotenv');
+const { rutacart, items } = require('./carrito');
 
 dotenv.config();
 
@@ -83,16 +84,24 @@ ruta.post("/inicio", async (req, res) => {
     res.redirect("/error")
   }
 });
-// Ruta del proivedor Vero ----------------------------------------------------------------  
+
+// Ruta del proveedor Vero
+// Ruta para ver los productos del proveedor Vero
 ruta.get("/provVero", async (req, res) => {
   try {
+    // Obtenemos el carrito desde la sesión
+    const carrito = req.session.cart || [];
+
+    // Obtenemos los productos del proveedor Vero
     const productos = await prisma.producto.findMany({
       where: {
-        category_id1: 2, // Reemplaza 2 con el ID real del proveedor Vero en tu base de datos
+        category_id1: 2,
       },
     });
-    res.render("provVero", { productos });
-    console.log("Acceso a vero");
+
+    // Renderizamos la vista provVero.ejs y pasamos las variables carrito y productos
+    res.render("provVero", { carrito, items: productos });
+    console.log("Acceso a provVero");
   } catch (error) {
     console.log("Error al obtener los productos del proveedor Vero:", error);
     res.status(500).redirect("/error");
@@ -103,12 +112,17 @@ ruta.get("/provVero", async (req, res) => {
 // Ruta del proivedor Almaguer ----------------------------------------------------------------  
 ruta.get("/provAlmaguer", async (req, res) => {
   try {
+
+    const carrito = req.session.cart || [];
+
     const productos = await prisma.producto.findMany({
       where: {
-        category_id1: 1, // Reemplaza 1 con el ID real del proveedor Almaguer en tu base de datos
+        category_id1: 1, // Replace 1 with the real ID of the Almaguer provider in your database
       },
     });
-    res.render("provAlmaguer", { productos });
+
+    // Pass the 'productos' variable to the 'provAlmaguer' template along with the 'items' variable
+    res.render("provAlmaguer",  { carrito, items: productos });
     console.log("Acceso a provAlmaguer");
   } catch (error) {
     console.log("Error al obtener los productos del proveedor Almaguer:", error);
@@ -148,6 +162,7 @@ ruta.get("/shopingCart",(req,res) => {
 ruta.get("/error",(req,res) => {
   res.render("error");
 });
+
 
 
 module.exports = ruta;

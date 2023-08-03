@@ -65,5 +65,15 @@ closeButton.addEventListener("click", function() {
 
 const popupButton = document.getElementById("popup-button");
 
+let selectedProductId;
+
+function rutacart(id) {
+  // Here you can implement the logic to add the product to the cart
+  // For now, let's just set the selectedProductId for demonstration purposes
+  selectedProductId = id;
+  console.log(`Product with ID ${id} added to cart.`);
+}
+
+
 
 

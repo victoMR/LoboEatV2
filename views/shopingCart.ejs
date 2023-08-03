@@ -1,17 +1,148 @@
-<!-- shopingCart.ejs -->
-<%- include("templates/encabezado")%>
-<%- include("templates/googleanalitics")%>
-<%- include("templates/menu")%>
-<link rel="stylesheet" href="/web/css/shopingCart.css">
-<script src="/web/js/carrito.js"></script>
-<div class="container">
-  <div class="cart">Tu pedido es:
-    <% carrito.forEach(producto => { %>
-      <div>
-        <span><%= producto.nombre %> - $<%= producto.precio %> - Cantidad: <%= producto.cantidad %></span>
+<%- include("templates/encabezado") %>
+  <%- include("templates/googleanalitics") %>
+    <%- include("templates/menu") %>
+
+      <link rel="stylesheet" href="/web/css/shopingCart.css">
+
+      <div class="container justify-content-center">
+        <div class="py-5 text-center">
+          <h2>Formulario de pago</h2>
+        </div>
+        <div class="row">
+          <!-- Lista de productos en el carrito -->
+          <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">Tu carrito 🛒</span>
+              <span class="badge badge-secondary badge-pill">
+                <%= carrito.length %>
+              </span>
+            </h4>
+            <ul class="list-group mb-3">
+              <% carrito.forEach(producto=> { %>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">
+                      <%= producto.name_product %>
+                    </h6>
+                    <small class="text-muted">
+                      <%= producto.descrip_product %>
+                    </small>
+                  </div>
+                  <span class="text-muted p-5">$<%= producto.precio_product %></span>
+                  <!-- Use icons for remove and add -->
+                  <div class="btn-group">
+                    <!-- Icono de menos para eliminar -->
+                    <a href="/eliminarProductoCarrito/<%= producto.id_product %>" class="btn btn-danger btn-sm"><i
+                        class="fas fa-minus"></i></a>
+                    <!-- Contador de cuántas veces se ha agregado el producto -->
+                    <span class="btn btn-light btn-sm">
+                      <%= producto.cantidad %>
+                    </span>
+                    <!-- Icono de más para agregar más del mismo producto -->
+                  </div>
+                </li>
+                <% }) %>
+            </ul>
+          </div>
+          <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Datos</h4>
+            <form class="needs-validation" novalidate>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName">Nombre</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Se requiere un nombre válido.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="username">Expediente</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">#</span>
+                    </div>
+                    <input type="text" class="form-control" id="username" placeholder="Expediente" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                      Se requiere un expediente.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email">Correo electrónico <span class="text-muted">(Opcional)</span></label>
+                  <input type="email" class="form-control" id="email" placeholder="utsjr@utsjr.edu.mx">
+                  <div class="invalid-feedback">
+                    Por favor, ingresa un correo electrónico válido para recibir actualizaciones de tu comida.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Algo que le quieras decir a el chef 👨‍🍳</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                </div>
+                </div>
+                <hr class="mb-4">
+                <h4 class="mb-3">Pago 🪪</h4>
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                    <label class="custom-control-label" for="credit">Efectivo 💵</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="debit">Tarjeta de débito 💳</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="paypal">PayPal </label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-name">Nombre en la tarjeta</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                    <small class="text-muted fs-6">Nombre completo como aparece en la tarjeta</small>
+                    <div class="invalid-feedback">
+                      Se requiere el nombre en la tarjeta.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-number">Número de tarjeta de crédito</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Se requiere el número de tarjeta de crédito.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3 mb-3">
+                    <label for="cc-expiration">Fecha de vencimiento</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Se requiere la fecha de vencimiento.
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3 m-4">
+                    <label for="cc-cvv">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                    <div class="invalid-feedback ">
+                      Se requiere el código de seguridad (CVV).
+                    </div>
+                  </div>
+                </div>
+
+                <br>
+                <button class="btn btn-primary btn-lg btn-green" type="submit">Continuar con el pago</button>
+                <hr class="mb-4">
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
       </div>
-    <% }) %>
-  </div>
-</div>
-</body>
-</html>
+      </body>
+
+      </html>
