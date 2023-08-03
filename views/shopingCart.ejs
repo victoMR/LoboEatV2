@@ -5,6 +5,13 @@
 <link rel="stylesheet" href="/web/css/shopingCart.css">
 <script src="/web/js/carrito.js"></script>
 <div class="container">
-  <div class="cart">Tu pedido es:  
+  <div class="cart">Tu pedido es:
+    <% carrito.forEach(producto => { %>
+      <div>
+        <span><%= producto.nombre %> - $<%= producto.precio %> - Cantidad: <%= producto.cantidad %></span>
+      </div>
+    <% }) %>
   </div>
 </div>
+</body>
+</html>

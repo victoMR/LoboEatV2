@@ -132,4 +132,5 @@ ruta.get("/error",(req,res) => {
   res.render("error");
 });
 
+
 module.exports = ruta;

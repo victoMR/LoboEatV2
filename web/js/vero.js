@@ -65,13 +65,5 @@ closeButton.addEventListener("click", function() {
 
 const popupButton = document.getElementById("popup-button");
 
-let increment = (popupButton) => {
-  console.log(popupButton);
-};
-
-let decrement = () => {
-  console.log("Quitar producto");
-};
-let update = () => {};
 
 
