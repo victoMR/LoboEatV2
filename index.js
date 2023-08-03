@@ -30,6 +30,9 @@ const usrRuta = require('./rutas/usuarios');
 app.use(carritoRouter); // Use the router directly, not the router property
 app.use("/", usrRuta);
 
+//Provedor
+// const prov = require('./rutas/provedores');
+
 var port = process.env.PORT || 3000;
 
 app.listen(port, () => {
