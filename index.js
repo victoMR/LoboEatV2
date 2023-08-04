@@ -1,3 +1,4 @@
+// This code snippet sets up an Express server with various middleware and routes. It configures the view engine, sets up static file serving, parses request bodies, configures session middleware, and listens on a specified port.
 const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
