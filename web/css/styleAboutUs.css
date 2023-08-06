@@ -1,43 +1,43 @@
 @media (min-width: 1024px) and (max-width: 1925px) {
-    .loader {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        background-color: #d17b41;
-    }
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #d17b41;
+  }
 
-    .background {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        background-image: linear-gradient(to bottom, #d17b41 50%, #a9d18e 100%);
-        background-color: #a9d18e;
-        opacity: 0.8;
-        z-index: -1;
-    }
+  .background {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(to bottom, #d17b41 50%, #a9d18e 100%);
+    background-color: #a9d18e;
+    opacity: 0.8;
+    z-index: -1;
+  }
 
-    .logo {
-        width: 10px;
-        height: 10%;
-        z-index: 1;
-        mix-blend-mode: multiply;
-    }
+  .logo {
+    width: 10px;
+    height: 10%;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
 
-    body {
-        margin: 0;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        overflow-x: hidden;
-        /* Ocultar el desbordamiento horizontal */
-    }
+  body {
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    /* Ocultar el desbordamiento horizontal */
+  }
 
 }
 
@@ -59,7 +59,8 @@ menu {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 300px; /* Ancho del menú desplegable */
+  width: 300px;
+  /* Ancho del menú desplegable */
   height: 628px;
   background-color: rgba(0, 0, 0, 0.947);
   padding: 10px;
@@ -84,101 +85,101 @@ menu {
   font-size: 28px;
   font-family: Arial, sans-serif;
 }
-  
-  .dropdown-menu a:hover {
-    color: #a9d18e;
-    font-weight: bolder;
-  }
-  
-  /* Estilos del ícono de menú hamburguesa */
-  .hamburger-icon{
-    margin-right: 20px;
-  }
 
-  .cart,
-  .shopping-icon,
-  .hamburger-icon {
-    position: relative;
-    font-size: 40px;
-    color: #000000;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-  
-  .shopping-icon,
-  .hamburger-icon:hover {
-    transform: scale(1.2);
-  }
-  
-  .cartAmount {
-    position: absolute;
-    top: -15px;
-    right: -10px;
-    font-size: 16px;
-    background-color: red;
-    color: white;
-    border-radius: 8px;
-    padding: 3px;
-  }
+.dropdown-menu a:hover {
+  color: #a9d18e;
+  font-weight: bolder;
+}
+
+/* Estilos del ícono de menú hamburguesa */
+.hamburger-icon {
+  margin-right: 20px;
+}
+
+.cart,
+.shopping-icon,
+.hamburger-icon {
+  position: relative;
+  font-size: 40px;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.shopping-icon,
+.hamburger-icon:hover {
+  transform: scale(1.2);
+}
+
+.cartAmount {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  padding: 3px;
+}
 
 #title {
-    padding-top: 60px;
-    padding-bottom: 30px;
-    text-align: center;
-    font-size: 60px;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 60px;
 }
 
 .subt {
-    padding: 20px 40px 16px 10%;
-    font-size: 40px;
+  padding: 20px 40px 16px 10%;
+  font-size: 40px;
 }
 
 p {
-    padding: 20px 40px 16px 5%;
-    font-size: 20px;
-    text-align: justify;
+  padding: 20px 40px 16px 5%;
+  font-size: 20px;
+  text-align: justify;
 }
 
 .containerprov {
-    padding-left: 80px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: -60px;
-    /* Compensar el espacio horizontal */
-    overflow-x: hidden;
-    /* Ocultar el desbordamiento horizontal */
+  padding-left: 80px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: -60px;
+  /* Compensar el espacio horizontal */
+  overflow-x: hidden;
+  /* Ocultar el desbordamiento horizontal */
 }
 
 #prov1 {
-    width: 36%;
-    display: flex;
-    flex-direction: column;
-    /* Cambiar la dirección del flujo para apilar los elementos verticalmente */
-    align-items: center;
-    justify-content: center;
-    margin-right: 120px;
-    /* Espacio horizontal entre los proveedores */
-    border: 1px solid black;
-    /* Borde alrededor de los proveedores */
-    border-radius: 20px;
-    padding: 10px;
-    /* Espacio interno para el contenido */
-    box-sizing: border-box;
-    /* Incluir el borde en el ancho y alto del proveedor */
+  width: 36%;
+  display: flex;
+  flex-direction: column;
+  /* Cambiar la dirección del flujo para apilar los elementos verticalmente */
+  align-items: center;
+  justify-content: center;
+  margin-right: 120px;
+  /* Espacio horizontal entre los proveedores */
+  border: 1px solid black;
+  /* Borde alrededor de los proveedores */
+  border-radius: 20px;
+  padding: 10px;
+  /* Espacio interno para el contenido */
+  box-sizing: border-box;
+  /* Incluir el borde en el ancho y alto del proveedor */
 }
 
 #prov1 img {
-    float: left;
-    border-radius: 100%;
-    /* Hacer la imagen circular */
-    width: 100px;
-    /* Ajusta el tamaño de la imagen según sea necesario */
-    height: 100px;
-    object-fit: cover;
-    /* Ajustar la imagen dentro del círculo */
-    margin-right: 10px;
-    /* Espacio entre la imagen y el texto */
+  float: left;
+  border-radius: 100%;
+  /* Hacer la imagen circular */
+  width: 100px;
+  /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 100px;
+  object-fit: cover;
+  /* Ajustar la imagen dentro del círculo */
+  margin-right: 10px;
+  /* Espacio entre la imagen y el texto */
 
 }

@@ -50,7 +50,8 @@
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="firstName">Nombre</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="firstName" placeholder=""
+                    value="<%= usuario.name_cliente %>" required readonly>
                   <div class="invalid-feedback">
                     Se requiere un nombre válido.
                   </div>
@@ -62,7 +63,8 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">#</span>
                     </div>
-                    <input type="text" class="form-control" id="username" placeholder="Expediente" required>
+                    <input type="text" class="form-control" id="username" placeholder="Expediente"
+                      value="<%= usuario.expediente_cliente %>" readonly>
                     <div class="invalid-feedback" style="width: 100%;">
                       Se requiere un expediente.
                     </div>
@@ -78,70 +80,71 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">Algo que le quieras decir a el chef 👨‍🍳</label>
+                  <label for="exampleFormControlTextarea1" class="form-label">Algo que le quieras decir a el chef
+                    👨‍🍳</label>
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                 </div>
-                </div>
-                <hr class="mb-4">
-                <h4 class="mb-3">Pago 🪪</h4>
-                <div class="d-block my-3">
-                  <div class="custom-control custom-radio">
-                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                    <label class="custom-control-label" for="credit">Efectivo 💵</label>
-                  </div>
-                  <div class="custom-control custom-radio">
-                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                    <label class="custom-control-label" for="debit">Tarjeta de débito 💳</label>
-                  </div>
-                  <div class="custom-control custom-radio">
-                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                    <label class="custom-control-label" for="paypal">PayPal </label>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="cc-name">Nombre en la tarjeta</label>
-                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                    <small class="text-muted fs-6">Nombre completo como aparece en la tarjeta</small>
-                    <div class="invalid-feedback">
-                      Se requiere el nombre en la tarjeta.
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="cc-number">Número de tarjeta de crédito</label>
-                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                    <div class="invalid-feedback">
-                      Se requiere el número de tarjeta de crédito.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-3 mb-3">
-                    <label for="cc-expiration">Fecha de vencimiento</label>
-                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                    <div class="invalid-feedback">
-                      Se requiere la fecha de vencimiento.
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-3 m-4">
-                    <label for="cc-cvv">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                    <div class="invalid-feedback ">
-                      Se requiere el código de seguridad (CVV).
-                    </div>
-                  </div>
-                </div>
-
-                <br>
-                <button class="btn btn-primary btn-lg btn-green" type="submit">Continuar con el pago</button>
-                <hr class="mb-4">
               </div>
-            </form>
+              <hr class="mb-4">
+              <h4 class="mb-3">Pago 🪪</h4>
+              <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="credit">Efectivo 💵</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="debit">Tarjeta de débito 💳</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="paypal">PayPal </label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="cc-name">Nombre en la tarjeta</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                  <small class="text-muted fs-6">Nombre completo como aparece en la tarjeta</small>
+                  <div class="invalid-feedback">
+                    Se requiere el nombre en la tarjeta.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-number">Número de tarjeta de crédito</label>
+                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Se requiere el número de tarjeta de crédito.
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <label for="cc-expiration">Fecha de vencimiento</label>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Se requiere la fecha de vencimiento.
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3 m-4">
+                  <label for="cc-cvv">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                  <div class="invalid-feedback ">
+                    Se requiere el código de seguridad (CVV).
+                  </div>
+                </div>
+              </div>
+
+              <br>
+              <button class="btn btn-primary btn-lg btn-green" type="submit">Continuar con el pago</button>
+              <hr class="mb-4">
           </div>
+          </form>
         </div>
-        <br>
+      </div>
+      <br>
       </div>
       </body>
 

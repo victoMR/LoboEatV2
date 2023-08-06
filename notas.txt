@@ -1,0 +1,8 @@
+
+
+Faltantes por hacer 
+
+✅✅Uusuario y modificar datos solo nombre y password 
+
+Administrador para agregar editar y modificar productos 
+

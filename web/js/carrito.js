@@ -1,4 +1,3 @@
-
 // Lista para almacenar los productos en el carrito
 const carrito = [];
 
