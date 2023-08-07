@@ -1,40 +1,43 @@
 <%- include("templates/encabezado")%>
-  <%- include("templates/menulogin")%>
+<%- include("templates/menuloginok")%>
 
-    <h1 class="text-center p-4 m-2">Registro de Usuario</h1>
+<h1 class="text-center p-4 m-2">Registro de Usuario</h1>
 
-    <form action="/register" method="POST">
-      <div class="mb-4  p-4 mx-auto m-4  w-50 p-3">
-        <label for="exampleFormControlInput1 username" class="form-label m-2 fs-4">Nombre de Usuario:</label>
-        <input type="text" class="form-control " id="exampleFormControlInput1 name" name="name" placeholder="Nombre"
-          required autofocus>
+<!-- Elemento para mostrar la alerta -->
+<div id="alertContainer"></div>
 
-        <label for="exampleFormControlInput1 username" class="form-label m-2 fs-4">Expediente:</label>
-        <input type="text" class="form-control " id="exampleFormControlInput1 username" name="username"
-          placeholder="Expediente" required autofocus maxlength="10">
+<form action="/register" method="POST">
+  <div class="mb-4  p-4 mx-auto m-4  w-50 p-3">
+    <label for="exampleFormControlInput1 username" class="form-label m-2 fs-4">Nombre de Usuario:</label>
+    <input type="text" class="form-control " id="exampleFormControlInput1 name" name="name" placeholder="Nombre"
+      required autofocus>
 
-        <div class="row g-6 align-items-center">
-          <div class="col-auto">
-            <label for="inputPassword6" class="col-form-label fs-4">Contraseña:</label>
-          </div>
+    <label for="exampleFormControlInput1 username" class="form-label m-2 fs-4">Expediente:</label>
+    <input type="text" class="form-control " id="exampleFormControlInput1 username" name="username"
+      placeholder="Expediente" required autofocus maxlength="10">
 
-          <div class="col-auto">
-            <input type="password" id="inputPassword6 password" class="form-control m-4 " name="password"
-              aria-labelledby="passwordHelpInline" required placeholder="12@aBC" maxlength="20" minlength="8">
-          </div>
-
-          <div class="col-auto">
-            <span id="passwordHelpInline" class="form-text m-2">
-              Debe tener entre 8 y 20 caracteres.
-            </span>
-          </div>
-
-          <div><a href="./login">¿Ya tienes cuenta?</a></div>
-          <br><br>
-        </div>
-
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Registrarse</button>
-        </div>
+    <div class="row g-6 align-items-center">
+      <div class="col-auto">
+        <label for="inputPassword6" class="col-form-label fs-4">Contraseña:</label>
       </div>
-    </form>
+
+      <div class="col-auto">
+        <input type="password" id="inputPassword6 password" class="form-control m-4 " name="password"
+          aria-labelledby="passwordHelpInline" required placeholder="12@aBC" maxlength="20" minlength="8">
+      </div>
+
+      <div class="col-auto">
+        <span id="passwordHelpInline" class="form-text m-2">
+          Debe tener entre 8 y 20 caracteres.
+        </span>
+      </div>
+
+      <div><a href="./login">¿Ya tienes cuenta?</a></div>
+      <br><br>
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-3">Registrarse</button>
+    </div>
+  </div>
+</form>

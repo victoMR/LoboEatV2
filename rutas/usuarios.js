@@ -41,9 +41,18 @@ ruta.get("/inicio", (req, res) => {
   res.render("inicio", { usuario });
 });
 
-// Ruta de registrar usuario
+// Ruta de registro de usuario (GET)
 ruta.get("/register", async (req, res) => {
-  res.render("register");
+  try {
+    // Verificar si ya hay un usuario logueado en la sesión
+    const usuario = req.session.usuario || null;
+
+    // Renderizar la vista register.ejs y pasar la variable "usuario" al template
+    res.render("register", { usuario });
+  } catch (error) {
+    console.error("Error rendering register:", error);
+    res.status(500).redirect("/error");
+  }
 });
 
 // Ruta de inserción de nuevo usuario a la base de datos
@@ -52,6 +61,19 @@ ruta.post("/register", async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10); // Encripta la contraseña utilizando bcrypt
 
   try {
+    // Verificar si el expediente ya existe en la base de datos
+    const existingCliente = await prisma.cliente.findUnique({
+      where: {
+        expediente_cliente: parseInt(username),
+      },
+    });
+
+    if (existingCliente) {
+      // El expediente ya está en uso, mostrar mensaje de error
+      return res.status(400).send("El expediente ya está en uso. Por favor, elija otro.");
+    }
+
+    // Si el expediente no existe en la base de datos, proceder con el registro
     const cliente = await prisma.cliente.create({
       data: {
         expediente_cliente: parseInt(username),
@@ -61,7 +83,12 @@ ruta.post("/register", async (req, res) => {
       },
     });
 
-    res.redirect("/inicio");
+    // Iniciar sesión automáticamente después de registrar al usuario
+    req.session.expediente_cliente = cliente.expediente_cliente;
+    // Almacenar la información del usuario en la sesión
+    req.session.usuario = cliente;
+
+    res.redirect("/inicio"); // Redirigir al usuario a la página de inicio
     console.log("Registro de cliente insertado en la base de datos");
   } catch (error) {
     console.log(
@@ -71,6 +98,7 @@ ruta.post("/register", async (req, res) => {
     res.status(500).redirect("/error");
   }
 });
+
 
 // Ruta de inicio de sesión
 ruta.post("/inicio", async (req, res) => {
