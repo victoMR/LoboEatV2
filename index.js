@@ -6,7 +6,9 @@ const path = require("path");
 const session = require("express-session");
 const carritoRouter = require("./rutas/carrito");
 const methodOverride = require("method-override");
+const rutaProvedor = require("./rutas/provedores");
 const $ = require("jquery");
+
 
 dotenv.config();
 
@@ -33,7 +35,8 @@ app.use(carritoRouter); // Use the router directly, not the router property
 app.use("/", usrRuta);
 
 //Provedor
-// const prov = require('./rutas/provedores');
+app.use("/loginpro", rutaProvedor);
+
 
 var port = process.env.PORT || 3000;
 

@@ -23,33 +23,36 @@
             <input type="text" name="login" id="login" placeholder="Expediente" autocomplete="on" autofocus
               maxlength="10">
             <!-- Contraseña -->
-            <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="on"
-              maxlength="20" minlength="8">
+            <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="on" maxlength="20"
+              minlength="8">
             <!-- Btn iniciar seccion -->
             <button class="button_login" type="submit">Iniciar Sesión</button>
             <!-- Proximamente -->
             <p><a href="#">¿Olvidaste tu contraseña?</a></p>
             <!-- Se va a register.ejs -->
             <p id="crearusr"><a href="/register">Crear Usuario</a></p>
-          </form>
+            </form>
+            
+            <!-- Formulario para proveedores (Inicialmente oculto) -->
+<form action="/loginpro/provedor/loginpro" method="post" id="proveedorForm" class="collapse">
+  <!-- Campos adicionales para proveedores -->
+  <!-- Aquí puedes agregar los campos que sean necesarios para el registro de proveedores -->
+  <input type="text" name="num_prov" id="num_prov" placeholder="Numero de proveedor" required autocomplete="on" autofocus
+    maxlength="6">
+  <input type="password" name="password" id="password" placeholder="Contraseña" required autocomplete="on"
+    maxlength="20" minlength="8">
+  <!-- Btn iniciar sesión para proveedores -->
+  <button class="button_login" type="submit">Iniciar Sesión</button>
+  <!-- Proximamente -->
+  <p><a href="#">¿Olvidaste tu contraseña de proveedor?</a></p>
+</form>
 
-          <!-- Formulario para proveedores (Inicialmente oculto) -->
-          <form action="/loginpro" method="post" id="proveedorForm" class="collapse">
-            <!-- Campos adicionales para proveedores -->
-            <!-- Aquí puedes agregar los campos que sean necesarios para el registro de proveedores -->
-            <input type="text" name="num_prov" id="num_prov" placeholder="Numero de provedor" required autocomplete="on"
-              autofocus maxlength="6">
-            <input type="password" name="password" id="password" placeholder="Contraseña" required autocomplete="on"
-              maxlength="20" minlength="8">
-            <!-- Btn iniciar seccion para proveedores -->
-            <button class="button_login" type="submit">Iniciar Sesión</button>
-            <!-- Proximamente -->
-            <p><a href="#">¿Olvidaste tu contraseña de proveedor?</a></p>
-          </form>
-        </div>
-      </div>
 
-      <!-- Integracion de reloj de api externa -->
+            
+            </div>
+            </div>
+            
+            <!-- Integracion de reloj de api externa -->
       <a href="https://time.is/San_Juan_del_Río" id="time_is_link" rel="nofollow"
         style="font-size:36px;color:#68a423"></a>
       <span id="_z159" style="font-size:36px;color:#68a423"></span>

@@ -22,6 +22,8 @@ model Provedor {
   status_prov Boolean?
   tel_prov    String?
   email_prov  String?
+  num_prov    Int
+  password   String?
 }
 
 model Categoria {
