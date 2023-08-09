@@ -185,5 +185,54 @@ rutaprov.post("/provedor/provedor/editarProductos/update/:productoId", async (re
   }
 });
 
+rutaprov.get("/provedor/provedor/addproduct", (req, res) => {
+  // Renderiza la plantilla para agregar un nuevo producto
+  res.render("provedor/addproduct");
+});
+
+rutaprov.post("/provedor/provedor/addproduct/addproduct", async (req, res) => {
+  const { nombre, descripcion, ingredientes, precio } = req.body;
+
+  try {
+    // Verificar si ya existe un producto con el mismo ID
+    let idProductExists = true;
+    let newProductId;
+
+    while (idProductExists) {
+      newProductId = Math.floor(Math.random() * 10000); // Genera un nuevo ID aleatorio tenemos haste 4 mil itmes para utilizar por el momento usamos 8  nos qudan 3992
+      const existingProduct = await prisma.producto.findFirst({
+        where: {
+          id_product: newProductId,
+        },
+      });
+
+      if (!existingProduct) {
+        idProductExists = false; // El nuevo ID no existe en la base de datos
+      }
+    }
+
+    // Crear el nuevo producto con el nuevo ID
+    const newProduct = await prisma.producto.create({
+      data: {
+        id_product: newProductId,
+        name_product: nombre,
+        descrip_product: descripcion,
+        ingredientes_product: ingredientes,
+        precio_product: parseFloat(precio),
+        status_product: true,
+        category_id1: num_prov,
+        provedor: num_prov,
+      },
+    });
+
+    console.log("Producto agregado:", newProduct);
+
+    res.redirect("/loginpro/provedor/Vero"); // Redirige a la página de productos del proveedor
+  } catch (error) {
+    console.log("Error al agregar el producto:", error);
+    res.status(500).redirect("/error");
+  }
+});
+
 
 module.exports = rutaprov;
