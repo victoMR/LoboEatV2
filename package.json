@@ -15,6 +15,9 @@
   ],
   "author": "Rangel Mejia Victor Manuel",
   "license": "GNU V3",
+  "engines": {
+    "node": ">=16.13"
+  },
   "dependencies": {
     "@prisma/client": "^3.9.1",
     "@vercel/analytics": "^1.0.1",
