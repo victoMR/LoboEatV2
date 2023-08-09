@@ -1,9 +1,10 @@
 const { PrismaClient } = require("@prisma/client");
 const ua = require("universal-analytics");
 const prisma = new PrismaClient();
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const rutaprov = require("express").Router();
 const dotenv = require("dotenv");
+var num_prov;
 
 dotenv.config();
 
@@ -13,61 +14,67 @@ rutaprov.get("/", (req, res) => {
     const visitor = ua(process.env.CLAVE_GOOGLE_ANALYTICS);
     // Track pageview for server-side
     visitor.pageview(req.originalUrl).send();
-    res.render("loginpro");
+    res.render("provedor/loginpro");
   } catch (error) {
     console.error("Error rendering login:", error);
     res.status(500).redirect("/error");
   }
 });
 
-rutaprov.get("/prueba",(req, res) => {
-  res.send("hola")
-});
-
-// Ruta de inicio de sesión para proveedores (POST)
-// rutaprov.post("/provedor/loginpro", async (req, res) => {
-//   const { num_prov, password } = req.body;
-
-//   try {
-//     const proveedor = await prisma.proveedor.findUnique({
-//       where: {
-//         num_prov: parseInt(num_prov),
-//       },
-//     });
 rutaprov.post("/provedor/loginpro", async (req, res) => {
-  const { num_prov, password } = req.body;
+  const name_prov = req.body.name_prov;
+  const password = req.body.password;
+  
+  let id_prov = null;
+
+  // Verificar si el nombre de proveedor es uno de los conocidos
+  if (name_prov === "Almaguer") {
+    id_prov = 1;
+  } else if (name_prov === "Vero") {
+    id_prov = 2;
+  }
+  num_prov = id_prov;
+
+  if (id_prov === null) {
+    // Nombre de proveedor desconocido
+    return res.status(400).send("Nombre de proveedor desconocido");
+  }
 
   try {
-    const proveedor = await prisma.proveedor.findUnique({
+    const proveedor = await prisma.provedor.findUnique({
       where: {
-        num_prov: parseInt(num_prov),
+        id_prov: id_prov,
       },
     });
 
+    console.log(proveedor);
+    console.log(password);
+    console.log(proveedor.password);
     if (!proveedor) {
       // El proveedor no existe en la base de datos
       return res.status(400).send("Credenciales incorrectas del proveedor");
-    }
+    } 
 
-    const passwordMatch = await bcrypt.compare(password, proveedor.password);
+    const passwordMatch = bcrypt.compare(
+      password,
+      proveedor.password
+    );
+    console.log(passwordMatch);
     if (!passwordMatch) {
       // La contraseña no coincide
       return res.status(400).send("Credenciales incorrectas");
     }
 
-    // Las credenciales son válidas, se inicia sesión exitosamente
-    req.session.num_prov = proveedor.num_prov;
-    // Almacenar la información del proveedor en la sesión
-    req.session.proveedor = proveedor;
+  
 
-    // Redirigir al proveedor según su número de proveedor
-    if (proveedor.num_prov === 202301) {
-      return res.redirect("/provedor/Almaguer");
-    } else if (proveedor.num_prov === 202202) {
-      return res.render("/provedor/Vero/menu");
+    // Redirigir al proveedor según su nombre
+    if (id_prov === 1) {
+      return res.redirect("/loginpro/provedor/Almaguer");
+    } else if (id_prov === 2) {
+      return res.redirect("/loginpro/provedor/Vero");
     } else {
-      // Redireccionar a una página de proveedor desconocido si el número no coincide con ninguno
-      return res.redirect("/provedor/desconocido");
+      // Redireccionar a una página de proveedor desconocido si el nombre no coincide con ninguno
+      return res.redirect("/loginpro/provedor/desconocido");
     }
   } catch (error) {
     console.log("Error al verificar las credenciales del proveedor:", error);
@@ -75,14 +82,108 @@ rutaprov.post("/provedor/loginpro", async (req, res) => {
   }
 });
 
-// Ruta de inicio de sesión para proveedores (GET)
-// Ruta de inicio de sesión para proveedores (GET)
-rutaprov.get("/provedor/loginpro", (req, res) => {
-  // Pasa la variable "usuario" al renderizar la plantilla "provedor/loginpro.ejs"
-  res.render("provedor/loginpro", { usuario: req.session.num_prov });
+// Rutas de inicio de sesión para proveedores (GET)
+rutaprov.get("/provedor/Almaguer", async (req, res) => {
+  try {
+    const productos = await prisma.producto.findMany({
+      where: {
+        provedor: 1 // Cambiar según el proveedor
+      }
+    });
+    console.log(productos);
+    res.render("provedor/Almaguer/menu", { productos: productos });
+  } catch (error) {
+    console.log("Error al obtener los productos:", error);
+    res.status(500).redirect("/error");
+  }
 });
 
-// Resto de las rutas relacionadas con proveedores
-// Puedes agregar aquí las rutas para cada proveedor específico
+rutaprov.get("/provedor/Vero", async (req, res) => {
+  try {
+    const productos = await prisma.producto.findMany({
+      where: {
+        provedor: 2 // Cambiar según el proveedor
+      }
+    });
+    //console.log(productos);
+    res.render("provedor/Vero/menu", { productos: productos });
+  } catch (error) {
+    console.log("Error al obtener los productos:", error);
+    res.status(500).redirect("/error");
+  }
+});
+
+rutaprov.get("/provedor/desconocido", (req, res) => {
+  res.render("provedor/desconocido");
+});
+
+rutaprov.get("/provedor/provedor/editarProductos/:productoId", async (req, res) => {
+ // console.log("dwf");
+  const productoId = parseInt(req.params.productoId, 10);
+
+  try {
+    const producto = await prisma.producto.findUnique({
+      where: {
+        id_product: productoId, // Usa el número entero en la consulta
+      },
+    });
+
+    if (!producto) {
+      return res.status(404).send("Producto no encontrado");
+    }
+
+    // Verifica si el producto es vendido por el proveedor actual
+    if (producto.provedor !== num_prov) {
+      console.log("producto.provedor"+producto.provedor);
+      console.log("productoid"+productoId);
+      console.log("numprov"+num_prov);
+      return res.status(403).send("No tienes permiso para editar este producto");
+    }
+
+    res.render("provedor/editarProducto", { producto });
+  } catch (error) {
+    console.log("Error al obtener el producto:", error);
+    res.status(500).redirect("/error");
+  }
+});
+
+rutaprov.post("loginpro/producto/update/:productoId", async (req, res) => {
+  const productoId = parseInt(req.params.productoId, 10);
+  const { nombre, descripcion, precio } = req.body;
+
+  try {
+    const producto = await prisma.producto.findUnique({
+      where: {
+        id_product: productoId,
+      },
+    });
+
+    if (!producto) {
+      return res.status(404).send("Producto no encontrado");
+    }
+
+    // Verifica si el producto es vendido por el proveedor actual
+    if (producto.provedor !== req.session.num_prov) {
+      return res.status(403).send("No tienes permiso para editar este producto");
+    }
+
+    await prisma.producto.update({
+      where: {
+        id_product: productoId,
+      },
+      data: {
+        nombre: nombre,
+        descripcion: descripcion,
+        precio: precio,
+        // Agrega más campos para actualizar aquí
+      },
+    });
+
+    res.redirect(`/loginpro/producto/edit/${productoId}`);
+  } catch (error) {
+    console.log("Error al actualizar el producto:", error);
+    res.status(500).redirect("/error");
+  }
+});
 
 module.exports = rutaprov;

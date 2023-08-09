@@ -1,1 +1,19 @@
-dasdadddasdasdasdasdasdasdasdasdas
+<%- include("../templates/encabezado")%>
+<link rel="stylesheet" href="../../../web/css/stylesOfMenu.css">
+<script src="../../../web/js/vero_prov.js" defer    ></script>
+<%- include("../templates/menu")%>
+
+  <div class="grid-container">
+    <% productos.forEach(producto => { %>
+      <div class="grid-item animate__animated animate__rubberBand">
+        <a href="provedor/editarProductos/<%= producto.id_product %>">
+          <div class="producto">
+            <h2><%= producto.name_product %></h2>
+            <p><%= producto.descrip_product %></p>
+            <p>Precio: <%= producto.precio_product %></p>
+            <!-- Agregar más detalles del producto aquí -->
+          </div>
+        </a>
+      </div>
+    <% }); %>
+  </div>

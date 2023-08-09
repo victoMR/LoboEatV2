@@ -16,7 +16,7 @@ model Cliente {
 }
 
 model Provedor {
-  id_prov     Int      @id
+  id_prov     Int      @id  @default(autoincrement())
   name_prov   String
   stand_prov  String?
   status_prov Boolean?

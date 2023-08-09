@@ -1,1 +1,32 @@
-dasdsasad
+<%- include("../templates/encabezado")%>
+<link rel="stylesheet" href="../../../web/css/stylesOfMenu.css">
+<script src="../../../web/js/vero_prov.js" defer    ></script>
+<menu>
+    <div class="menu-container">
+      <img id="logo" src="/web/Img/imgprov.png" alt="Logo" height="70px">
+
+      <span class="hamburger-icon"><i class="fas fa-bars"></i></span>
+
+      <div class="dropdown-menu">
+        <ul>
+          <li><a href="/provedor/Vero">Inicio</a></li>
+          <li><a href="/provAlmaguer">Estadisticas</a></li>
+          <li><a href="/aboutus">Editar Datos </a></li>
+          <li><a href="/login">Cerrar Sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </menu>
+
+  <div class="grid-container">
+    <% productos.forEach(producto => { %>
+      <div class="grid-item animate__animated animate__rubberBand">
+        <div class="producto">
+          <h2><%= producto.name_product %></h2>
+          <p><%= producto.descrip_product %></p>
+          <p>Precio: <%= producto.precio_product %></p>
+          <!-- Agregar más detalles del producto aquí -->
+        </div>
+      </div>
+    <% }); %>
+  </div>

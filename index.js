@@ -7,7 +7,7 @@ const session = require("express-session");
 const carritoRouter = require("./rutas/carrito");
 const methodOverride = require("method-override");
 const rutaProvedor = require("./rutas/provedores");
-const $ = require("jquery");
+const $ = require("jquery");  
 
 
 dotenv.config();

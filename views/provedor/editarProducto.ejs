@@ -1,0 +1,20 @@
+<%- include("templates/encabezado")%>
+<link rel="stylesheet" href="../../../web/css/stylesOfMenu.css">
+<script src="../../../web/js/vero_prov.js" defer></script>
+<menu>
+  <!-- Menú y encabezado aquí -->
+</menu>
+
+<div class="editar-producto-container">
+  <h2>Editar Producto</h2>
+  <form action="/producto/update/<%= producto.id_product %>" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" value="<%= producto.nombre %>" required>
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" required><%= producto.descripcion %></textarea>
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" value="<%= producto.precio %>" required>
+    <!-- Agrega más campos para editar otros detalles del producto aquí -->
+    <button type="submit">Guardar Cambios</button>
+  </form>
+</div>
