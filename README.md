@@ -13,12 +13,27 @@ npm i
 ```
 Que dependencias de node son:
 ``` terminal
-npm i ejs
-npm i embellish.css
-npm i express
-npm i  express-session
-npm i  mx
-npm i  nodemon -G
+"@prisma/client": "^3.9.1",
+    "@vercel/analytics": "^1.0.1",
+    "animate.css": "^4.1.1",
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.0",
+    "bootstrap-icons": "^1.10.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "embellish.css": "^6.1.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jquery": "^3.7.0",
+    "mdbootstrap": "^4.20.0",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "mx": "^1.0.0-0",
+    "next": "^13.4.10",
+    "nodemon": "^2.0.22",
+    "universal-analytics": "^0.5.3"
 ```
 Iniciar servidor :
 ``` terminal
