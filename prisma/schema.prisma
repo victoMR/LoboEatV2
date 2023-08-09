@@ -6,6 +6,7 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Cliente {
@@ -16,14 +17,15 @@ model Cliente {
 }
 
 model Provedor {
-  id_prov     Int      @id  @default(autoincrement())
+  id_prov     Int      @id
   name_prov   String
   stand_prov  String?
   status_prov Boolean?
   tel_prov    String?
   email_prov  String?
   num_prov    Int
-  password   String?
+  password    String   @db.VarChar(50)
+  imagen      String?  @db.VarChar(255)
 }
 
 model Categoria {
@@ -40,7 +42,8 @@ model Producto {
   status_product       Boolean
   category_id1         Int
   offers_product       Int?
-  provedor             Int     @default(0)
+  provedor             Int?    @default(0)
+  imagen               String? @db.VarChar(255)
 }
 
 model Ticket {

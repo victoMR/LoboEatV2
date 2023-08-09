@@ -3,7 +3,7 @@
 
 <div class="container mt-5">
     <h2>Agregar Nuevo Producto</h2>
-    <form action="addproduct/" method="POST">
+    <form action="addproduct/" method="POST" enctype="multipart/form-data" >
       <!-- Campo oculto para el id -->
       
       <!-- Agrega campos para ingresar los detalles del nuevo producto aquí -->
@@ -22,6 +22,10 @@
       <div class="mb-3">
         <label for="precio" class="form-label">Precio:</label>
         <input type="number" class="form-control" id="precio" name="precio" required>
+      </div>
+      <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen del Producto:</label>
+        <input type="file" class="form-control" id="imagen" name="imagen">
       </div>
       <!-- Agrega más campos según tus necesidades -->
       <button type="submit" class="btn btn-primary">Agregar Producto</button>

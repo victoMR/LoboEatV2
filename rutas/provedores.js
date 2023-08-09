@@ -4,6 +4,9 @@ const prisma = new PrismaClient();
 const bcrypt = require("bcryptjs");
 const rutaprov = require("express").Router();
 const dotenv = require("dotenv");
+const path = require("path");
+var subirArchivo = require('../middlewares/subirArchivos');
+
 var num_prov;
 
 dotenv.config();
@@ -111,7 +114,7 @@ rutaprov.get("/provedor/desconocido", (req, res) => {
   res.render("provedor/desconocido");
 });
 
-rutaprov.get("/provedor/provedor/editarProductos/:productoId", async (req, res) => {
+rutaprov.get("/provedor/provedor/editarProductos/:productoId", subirArchivo(), async (req, res) => {
  // console.log("dwf");
   const productoId = parseInt(req.params.productoId, 10);
 
@@ -143,8 +146,8 @@ rutaprov.get("/provedor/provedor/editarProductos/:productoId", async (req, res) 
   }
 });
 
-rutaprov.post("/provedor/provedor/editarProductos/update/:productoId", async (req, res) => {
-
+rutaprov.post("/provedor/provedor/editarProductos/update/:productoId", subirArchivo(), async (req, res) => {
+  console.log(req.file);
   const productoId = parseInt(req.params.productoId, 10);
 
   const { nombre, descripcion, precio, ingredientes } = req.body;
@@ -165,19 +168,28 @@ rutaprov.post("/provedor/provedor/editarProductos/update/:productoId", async (re
       return res.status(403).send("No tienes permiso para editar este producto");
     }
 
+    let dataToUpdate = {
+      name_product: nombre,
+      descrip_product: descripcion,
+      ingredientes_product: ingredientes,
+      precio_product: parseFloat(precio),
+    };
+
+    if (req.file) {
+      // Si hay un archivo adjunto, actualizar la imagen en la base de datos
+      dataToUpdate.imagen = req.file.originalname;
+      console.log(dataToUpdate.imagen);
+    }
+
     await prisma.producto.update({
       where: {
         id_product: productoId,
       },
-      data: {
-        name_product: nombre,
-        descrip_product: descripcion,
-        ingredientes_product: ingredientes,
-        precio_product: parseFloat(precio),
-        // Agrega más campos para actualizar aquí
-      },
+      data: dataToUpdate,
+      
     });
-
+    console.log(dataToUpdate);
+    console.log(dataToUpdate.imagen);
     res.redirect(`/loginpro/provedor/provedor/editarProductos/${productoId}`);
   } catch (error) {
     console.log("Error al actualizar el producto:", error);
@@ -185,21 +197,22 @@ rutaprov.post("/provedor/provedor/editarProductos/update/:productoId", async (re
   }
 });
 
+
 rutaprov.get("/provedor/provedor/addproduct", (req, res) => {
   // Renderiza la plantilla para agregar un nuevo producto
   res.render("provedor/addproduct");
 });
 
-rutaprov.post("/provedor/provedor/addproduct/addproduct", async (req, res) => {
+rutaprov.post("/provedor/provedor/addproduct/addproduct", subirArchivo(), async (req, res) => {
   const { nombre, descripcion, ingredientes, precio } = req.body;
-
+  
   try {
     // Verificar si ya existe un producto con el mismo ID
     let idProductExists = true;
     let newProductId;
 
     while (idProductExists) {
-      newProductId = Math.floor(Math.random() * 10000); // Genera un nuevo ID aleatorio tenemos haste 4 mil itmes para utilizar por el momento usamos 8  nos qudan 3992
+      newProductId = Math.floor(Math.random() * 10000);
       const existingProduct = await prisma.producto.findFirst({
         where: {
           id_product: newProductId,
@@ -207,11 +220,16 @@ rutaprov.post("/provedor/provedor/addproduct/addproduct", async (req, res) => {
       });
 
       if (!existingProduct) {
-        idProductExists = false; // El nuevo ID no existe en la base de datos
+        idProductExists = false;
       }
     }
 
-    // Crear el nuevo producto con el nuevo ID
+    // Crear el nuevo producto con la imagen (si existe)
+    let imagenNombre = null;
+    if (req.file) {
+      imagenNombre = req.file.originalname;
+    }
+
     const newProduct = await prisma.producto.create({
       data: {
         id_product: newProductId,
@@ -222,12 +240,20 @@ rutaprov.post("/provedor/provedor/addproduct/addproduct", async (req, res) => {
         status_product: true,
         category_id1: num_prov,
         provedor: num_prov,
+        imagen: imagenNombre
       },
     });
 
     console.log("Producto agregado:", newProduct);
 
-    res.redirect("/loginpro/provedor/Vero"); // Redirige a la página de productos del proveedor
+        let proveedorRedireccion = "";
+    if (num_prov === 1) {
+      proveedorRedireccion = "almaguer";
+    } else if (num_prov === 2) {
+      proveedorRedireccion = "vero";
+    }
+
+    res.redirect(`/loginpro/provedor/${proveedorRedireccion}`);
   } catch (error) {
     console.log("Error al agregar el producto:", error);
     res.status(500).redirect("/error");

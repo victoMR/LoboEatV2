@@ -3,8 +3,8 @@
 
 <div class="container mt-5">
   <div class="editar-producto-container">
-    <h2>Editar Producto: <%= producto.name_product %></h2>
-    <form action="update/<%= producto.id_product %>" method="POST">
+    <h2 class="fs-1">Editar Producto: <%= producto.name_product %></h2><br>
+    <form action="update/<%= producto.id_product %>" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre:</label>
         <input type="text" class="form-control" id="nombre" name="nombre" value="<%= producto.name_product %>" required>
@@ -21,8 +21,17 @@
         <label for="precio" class="form-label">Precio:</label>
         <input type="number" class="form-control" id="precio" name="precio" value="<%= producto.precio_product %>" required>
       </div>
-      <!-- Agrega más campos para editar otros detalles del producto aquí -->
-      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-    </form>
+      <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen actual del Producto:</label>
+        <img src="/web/images/<%= producto.imagen %>" alt="Imagen actual del producto" class="img-thumbnail" height="10%" width="25%">
+      </div>
+      <form action="update/<%= producto.id_product %>" method="POST" enctype="multipart/form-data">
+        <!-- Resto del formulario... -->
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Cambiar Imagen del Producto:</label>
+          <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+        </div>
+        <!-- Agrega más campos para editar otros detalles del producto aquí -->
+        <button type="submit" class="btn btn-primary btn-lg mb-4 ">Guardar Cambios</button>
   </div>
 </div>

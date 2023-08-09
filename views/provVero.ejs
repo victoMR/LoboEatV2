@@ -49,47 +49,43 @@
 
     <!-- Lista de productos -->
     <div id="addToCartButtons" class="grid-container">
-      <% let i=2; %>
-        <% items.forEach((producto)=> { %>
-          <% console.log(producto); %>
-            <span id="id<%= i %>" class="hidden">
-              <%= producto.id_product %>
-            </span>
-            <div class="grid-item animate__animated animate__rubberBand">
-              <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg"
-                alt="Descripción de la imagen" />
-              <div class="overlay">
-                <span id="titulo<%= i %>">
-                  <%= producto.name_product %> $<%= producto.precio_product %>
-                </span>
-                <span class="text" id="description<%= i %>" name="descrip_product">
-                  <%= producto.descrip_product %>
-                </span>
-                <span class="text" id="ingredients<%= i %>">
-                  <%= producto.ingredientes_product %>
-                </span>
-              </div>
-              <!--  en imagen debemos poner este cual conecta a la base de datos  <%= producto.imagen %> -->
-            </div>
-            <% i++; %>
-              <% }) %>
+      <% let i = 2; %>
+<% items.forEach((producto) => { %>
+  <% console.log(producto); %>
+  <span id="id<%= i %>" class="hidden">
+    <%= producto.id_product %>
+  </span>
+  <div class="grid-item animate__animated animate__rubberBand">
+    <!-- Aquí usamos la URL de la imagen almacenada en la base de datos del producto -->
+    <img src="/web/images/<%= producto.imagen %>" alt="Imagen del producto" />
+    <div class="overlay">
+      <span id="titulo<%= i %>">
+        <%= producto.name_product %> $<%= producto.precio_product %>
+      </span>
+      <span class="text" id="description<%= i %>" name="descrip_product">
+        <%= producto.descrip_product %>
+      </span>
+      <span class="text" id="ingredients<%= i %>">
+        <%= producto.ingredientes_product %>
+      </span>
+    </div>
+  </div>
+  <% i++; %>
+<% }) %>
+
     </div>
 
     <!-- Add to cart buttons -->
     <div class="grid-container">
-      <% items.forEach((producto)=> { %>
-        <% if (producto.id_product===3) { %>
-          <div class="grid-item animate__animated animate__rubberBand">
-            <a href="/agregar/<%= producto.id_product %>" class="btn btn-primary col-5 rounded-4  "><i
-                class="bi bi-basket3-fill"></i></a>
-          </div>
-          <% } else if (producto.id_product===4) { %>
-            <div class="grid-item animate__animated animate__rubberBand">
-              <a href="/agregar/<%= producto.id_product %>" class="btn btn-primary col-5 rounded-4  "><i
-                  class="bi bi-basket3-fill"></i></a>
-              <% } %>
-                <% }) %>
-            </div>
+      <% items.forEach((producto) => { %>
+        <div class="grid-item animate__animated animate__rubberBand">
+          <a href="/agregar/<%= producto.id_product %>" class="btn btn-primary col-5 rounded-4">
+            <i class="bi bi-basket3-fill"></i>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+    
 
             <!-- PopUp -->
             <div class="containerpopup"></div>
