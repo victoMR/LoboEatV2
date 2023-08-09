@@ -47,26 +47,20 @@ rutaprov.post("/provedor/loginpro", async (req, res) => {
       },
     });
 
-    console.log(proveedor);
-    console.log(password);
-    console.log(proveedor.password);
     if (!proveedor) {
       // El proveedor no existe en la base de datos
       return res.status(400).send("Credenciales incorrectas del proveedor");
     } 
+    
 
     const passwordMatch = bcrypt.compare(
       password,
       proveedor.password
     );
-    console.log(passwordMatch);
     if (!passwordMatch) {
       // La contraseña no coincide
       return res.status(400).send("Credenciales incorrectas");
     }
-
-  
-
     // Redirigir al proveedor según su nombre
     if (id_prov === 1) {
       return res.redirect("/loginpro/provedor/Almaguer");
@@ -134,6 +128,7 @@ rutaprov.get("/provedor/provedor/editarProductos/:productoId", async (req, res) 
 
     // Verifica si el producto es vendido por el proveedor actual
     if (producto.provedor !== num_prov) {
+      console.log("bbbbbbbb");
       console.log("producto.provedor"+producto.provedor);
       console.log("productoid"+productoId);
       console.log("numprov"+num_prov);
@@ -141,15 +136,18 @@ rutaprov.get("/provedor/provedor/editarProductos/:productoId", async (req, res) 
     }
 
     res.render("provedor/editarProducto", { producto });
+ 
   } catch (error) {
     console.log("Error al obtener el producto:", error);
     res.status(500).redirect("/error");
   }
 });
 
-rutaprov.post("loginpro/producto/update/:productoId", async (req, res) => {
+rutaprov.post("/provedor/provedor/editarProductos/update/:productoId", async (req, res) => {
+
   const productoId = parseInt(req.params.productoId, 10);
-  const { nombre, descripcion, precio } = req.body;
+
+  const { nombre, descripcion, precio, ingredientes } = req.body;
 
   try {
     const producto = await prisma.producto.findUnique({
@@ -163,7 +161,7 @@ rutaprov.post("loginpro/producto/update/:productoId", async (req, res) => {
     }
 
     // Verifica si el producto es vendido por el proveedor actual
-    if (producto.provedor !== req.session.num_prov) {
+    if (producto.provedor !== num_prov) {
       return res.status(403).send("No tienes permiso para editar este producto");
     }
 
@@ -172,18 +170,20 @@ rutaprov.post("loginpro/producto/update/:productoId", async (req, res) => {
         id_product: productoId,
       },
       data: {
-        nombre: nombre,
-        descripcion: descripcion,
-        precio: precio,
+        name_product: nombre,
+        descrip_product: descripcion,
+        ingredientes_product: ingredientes,
+        precio_product: parseFloat(precio),
         // Agrega más campos para actualizar aquí
       },
     });
 
-    res.redirect(`/loginpro/producto/edit/${productoId}`);
+    res.redirect(`/loginpro/provedor/provedor/editarProductos/${productoId}`);
   } catch (error) {
     console.log("Error al actualizar el producto:", error);
     res.status(500).redirect("/error");
   }
 });
+
 
 module.exports = rutaprov;

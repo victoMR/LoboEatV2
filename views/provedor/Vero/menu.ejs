@@ -1,19 +1,46 @@
 <%- include("../templates/encabezado")%>
 <link rel="stylesheet" href="../../../web/css/stylesOfMenu.css">
 <script src="../../../web/js/vero_prov.js" defer    ></script>
-<%- include("../templates/menu")%>
+<menu>
+  <div class="menu-container">
+    <img id="logo" src="/web/Img/imgprov.png" alt="Logo" height="70px">
+    <span class="hamburger-icon"><i class="fas fa-bars"></i></span>
+    <div class="dropdown-menu">
+      <ul>
+        <li><a href="/loginpro/provedor/Vero">Inicio</a></li>
+        <li><a href="/provAlmaguer">Estadisticas</a></li>
+        <li><a href="/aboutus">Editar Datos</a></li>
+        <li><a href="/login">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</menu>
 
-  <div class="grid-container">
+<div class="container mt-5">
+  <div class="row">
     <% productos.forEach(producto => { %>
-      <div class="grid-item animate__animated animate__rubberBand">
-        <a href="provedor/editarProductos/<%= producto.id_product %>">
-          <div class="producto">
-            <h2><%= producto.name_product %></h2>
-            <p><%= producto.descrip_product %></p>
-            <p>Precio: <%= producto.precio_product %></p>
-            <!-- Agregar más detalles del producto aquí -->
+      <div class="col-md-4 mb-4">
+        <a href="provedor/editarProductos/<%= producto.id_product %>" class="text-decoration-none">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= producto.name_product %></h5>
+              <p class="card-text"><%= producto.descrip_product %></p>
+              <p class="card-text">Precio: $ <%= producto.precio_product %></p>
+            </div>
           </div>
         </a>
       </div>
     <% }); %>
+     <!-- Agregar recuadro para agregar nuevo producto -->
+     <div class="col-md-4 mb-4">
+      <a href="/ruta-para-agregar-nuevo-producto" class="text-decoration-none">
+        <div class="card text-center border-dashed">
+          <div class="card-body">
+            <h5 class="card-title">Agregar Nuevo Producto</h5>
+            <i class="fas fa-plus fa-3x"></i>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
+</div>

@@ -52,7 +52,7 @@
     width: 100%;
     height: 50%;
     background-image: linear-gradient(to bottom, #d17b41 50%, #a9d18e 100%);
-    background-color: #a9d18e;
+    background-color: #a9d18ea4;
     opacity: 0.8;
     z-index: -1;
   }
