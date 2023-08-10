@@ -190,7 +190,16 @@ rutaprov.post("/provedor/provedor/editarProductos/update/:productoId", subirArch
     });
     console.log(dataToUpdate);
     console.log(dataToUpdate.imagen);
-    res.redirect(`/loginpro/provedor/provedor/editarProductos/${productoId}`);
+    console.log("Producto actualizado:", dataToUpdate);
+
+    let proveedorRedireccion = "";
+    if (num_prov === 1) {
+      proveedorRedireccion = "almaguer";
+    } else if (num_prov === 2) {
+      proveedorRedireccion = "vero";
+    }
+
+    res.redirect(`/loginpro/provedor/${proveedorRedireccion}`);
   } catch (error) {
     console.log("Error al actualizar el producto:", error);
     res.status(500).redirect("/error");
@@ -256,6 +265,96 @@ rutaprov.post("/provedor/provedor/addproduct/addproduct", subirArchivo(), async 
     res.redirect(`/loginpro/provedor/${proveedorRedireccion}`);
   } catch (error) {
     console.log("Error al agregar el producto:", error);
+    res.status(500).redirect("/error");
+  }
+});
+
+// ... (otras importaciones y configuraciones)
+
+// Ruta para borrar temporalmente un producto
+rutaprov.post("/provedor/provedor/editarProductos/borrar/:productoId", async (req, res) => {
+  const productoId = parseInt(req.params.productoId, 10);
+
+  try {
+    // Verificar si el producto existe
+    const producto = await prisma.producto.findUnique({
+      where: {
+        id_product: productoId,
+      },
+    });
+
+    if (!producto) {
+      return res.status(404).send("Producto no encontrado");
+    }
+
+    // Actualizar num_pro a 0 (borrado temporal)
+    await prisma.producto.update({
+      where: {
+        id_product: productoId,
+      },
+      data: {
+        provedor: 0,
+      },
+    });
+
+    let proveedorRedireccion = "";
+    if (num_prov === 1) {
+      proveedorRedireccion = "almaguer";
+    } else if (num_prov === 2) {
+      proveedorRedireccion = "vero";
+    }
+
+    res.redirect(`/loginpro/provedor/${proveedorRedireccion}`);
+  } catch (error) {
+    console.log("Error al borrar temporalmente el producto:", error);
+    res.status(500).redirect("/error");
+  }
+});
+
+// Ruta para restaurar un producto
+rutaprov.post("/provedor/provedor/editarProductos/restaurar/:productoId", async (req, res) => {
+  const productoId = parseInt(req.params.productoId, 10);
+
+  try {
+    // Verificar si el producto existe
+    const producto = await prisma.producto.findUnique({
+      where: {
+        id_product: productoId,
+      },
+    });
+
+    if (!producto) {
+      return res.status(404).send("Producto no encontrado");
+    }
+
+    // Definir el valor original de num_pro dependiendo del proveedor
+    let valorOriginalNumPro;
+    if (producto.provedor === 1) {
+      valorOriginalNumPro = 1; // Cambia esto al valor original para el proveedor Almaguer
+    } else if (producto.provedor === 2) {
+      valorOriginalNumPro = 2; // Cambia esto al valor original para el proveedor Vero
+    }
+
+    // Actualizar num_pro al valor original
+    await prisma.producto.update({
+      where: {
+        id_product: productoId,
+      },
+      data: {
+        provedor: valorOriginalNumPro,
+      },
+    });
+
+    let proveedorRedireccion = "";
+    if (num_prov === 1) {
+      proveedorRedireccion = "almaguer";
+    } else if (num_prov === 2) {
+      proveedorRedireccion = "vero";
+    }
+
+    res.redirect(`/loginpro/provedor/${proveedorRedireccion}`);
+  } catch (error) {
+    console.log("Error al restaurar el producto:", error);
     res.status(500).redirect("/error");
   }
 });

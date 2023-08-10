@@ -25,13 +25,109 @@
         <label for="imagen" class="form-label">Imagen actual del Producto:</label>
         <img src="/web/images/<%= producto.imagen %>" alt="Imagen actual del producto" class="img-thumbnail" height="10%" width="25%">
       </div>
-      <form action="update/<%= producto.id_product %>" method="POST" enctype="multipart/form-data">
-        <!-- Resto del formulario... -->
-        <div class="mb-3">
-          <label for="imagen" class="form-label">Cambiar Imagen del Producto:</label>
-          <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
-        </div>
-        <!-- Agrega más campos para editar otros detalles del producto aquí -->
-        <button type="submit" class="btn btn-primary btn-lg mb-4 ">Guardar Cambios</button>
+      <div class="mb-3">
+        <label for="imagen" class="form-label">Cambiar Imagen del Producto:</label>
+        <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+      </div>
+      <div class="text-center my-4">
+      <button type="submit" class="btn btn-primary btn-lg mb-4 text-center">Guardar Cambios</button>
+    </div>
+    </form>
+    <div class="text-center my-4">
+      <form action="borrar/<%= producto.id_product %>" method="POST">
+        <button type="submit" class="btn btn-danger mx-2" id="borrar-temporalmente">
+          Borrar Temporalmente
+        </button>
+      </form>
+    </div>
   </div>
 </div>
+
+<style>
+  .editar-producto-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-label {
+    font-weight: bold;
+  }
+
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 18px;
+  }
+
+  .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .btn-primary,
+  .btn-danger {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+  }
+</style>
+
+
+<script>
+  const borrarTemporalmenteBtn = document.getElementById("borrar-temporalmente");
+  const restaurarBtn = document.getElementById("restaurar");
+
+  borrarTemporalmenteBtn.addEventListener("click", async () => {
+    try {
+      const productoId =  producto.id_product ;
+
+      const response = await fetch(`/provedor/provedor/editarProductos/borrar/${productoId}`, {
+        method: "POST",
+      });
+
+      if (response.ok) {
+        // Redirigir o mostrar mensaje de éxito
+      } else {
+        // Mostrar mensaje de error u otra lógica
+      }
+    } catch (error) {
+      console.error("Error al borrar temporalmente el producto:", error);
+    }
+  });
+
+  restaurarBtn.addEventListener("click", async () => {
+    try {
+      const productoId =  producto.id_product;
+
+      const response = await fetch(`/provedor/provedor/editarProductos/restaurar/${productoId}`, {
+        method: "POST",
+      });
+
+      if (response.ok) {
+        // Redirigir o mostrar mensaje de éxito
+      } else {
+        // Mostrar mensaje de error u otra lógica
+      }
+    } catch (error) {
+      console.error("Error al restaurar el producto:", error);
+    }
+  });
+</script>
+
