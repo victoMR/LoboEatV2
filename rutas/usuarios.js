@@ -113,7 +113,7 @@ ruta.post("/inicio", async (req, res) => {
 
     if (!cliente) {
       // El cliente no existe en la base de datos
-      return res.status(400).send("Credenciales incorrectas");
+      return res.status(400).send("Credenciales incorrectas").redirect("/error");
     }
 
     const passwordMatch = await bcrypt.compare(
@@ -122,7 +122,7 @@ ruta.post("/inicio", async (req, res) => {
     );
     if (!passwordMatch) {
       // La contraseña no coincide
-      return res.status(400).send("Credenciales incorrectas");
+      return res.status(400).send("Credenciales incorrectas").redirect("/error");
     }
 
     // Las credenciales son válidas, se inicia sesión exitosamente
