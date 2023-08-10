@@ -271,7 +271,7 @@ rutaprov.post("/provedor/provedor/addproduct/addproduct", subirArchivo(), async 
 
 // ... (otras importaciones y configuraciones)
 
-// Ruta para borrar temporalmente un producto
+// Ruta para borrar permanently
 rutaprov.post("/provedor/provedor/editarProductos/borrar/:productoId", async (req, res) => {
   const productoId = parseInt(req.params.productoId, 10);
 
@@ -287,16 +287,13 @@ rutaprov.post("/provedor/provedor/editarProductos/borrar/:productoId", async (re
       return res.status(404).send("Producto no encontrado");
     }
 
-    // Actualizar num_pro a 0 (borrado temporal)
-    await prisma.producto.update({
+    // Eliminar el producto de forma permanente
+    await prisma.producto.delete({
       where: {
         id_product: productoId,
       },
-      data: {
-        provedor: 0,
-      },
     });
-
+    console.log(producto);
     let proveedorRedireccion = "";
     if (num_prov === 1) {
       proveedorRedireccion = "almaguer";
@@ -306,10 +303,11 @@ rutaprov.post("/provedor/provedor/editarProductos/borrar/:productoId", async (re
 
     res.redirect(`/loginpro/provedor/${proveedorRedireccion}`);
   } catch (error) {
-    console.log("Error al borrar temporalmente el producto:", error);
+    console.log("Error al eliminar permanentemente el producto:", error);
     res.status(500).redirect("/error");
   }
 });
+
 
 // Ruta para restaurar un producto
 rutaprov.post("/provedor/provedor/editarProductos/restaurar/:productoId", async (req, res) => {
@@ -345,14 +343,7 @@ rutaprov.post("/provedor/provedor/editarProductos/restaurar/:productoId", async 
       },
     });
 
-    let proveedorRedireccion = "";
-    if (num_prov === 1) {
-      proveedorRedireccion = "almaguer";
-    } else if (num_prov === 2) {
-      proveedorRedireccion = "vero";
-    }
-
-    res.redirect(`/loginpro/provedor/${proveedorRedireccion}`);
+    res.redirect(`/loginpro/provedor/editarProductos/${productoId}`);
   } catch (error) {
     console.log("Error al restaurar el producto:", error);
     res.status(500).redirect("/error");
